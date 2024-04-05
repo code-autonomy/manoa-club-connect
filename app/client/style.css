@@ -4,7 +4,7 @@
 /* Set up some CSS variables to theme the application. */
 :root {
   --matr-navbar-bg: #ECECEC;
-  --matr-navbar-bg-rgb: 236, 236, 236;
+  --matr-navbar-bg-rgb: 2, 71, 49;
 }
 
 /* Change bootstrap variable values.
@@ -25,4 +25,27 @@ body {
   color: var(--bs-dark);
   padding-top: 10px;
   padding-bottom: 20px;
+}
+
+.landing-background {
+  background-image: url("https://manoa.hawaii.edu/wp/wp-content/uploads/2020/12/strategic-plan-hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.carousel-item-container {
+  border: 2px black solid;
+  outline: 2px black solid;
+  outline-offset: -10px;
+  height: 500px;
+  background-color: white;
+  opacity: 90%;
+}
+
+hr.underline {
+  color: black;
+  background-color: black;
+  height: 1px;
+  border: none;
 }
