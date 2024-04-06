@@ -87,3 +87,16 @@ hr.underline {
   border-bottom-left-radius: 50%;
   border-top-left-radius: 50%;
 }
+
+.profile-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set height to 100% of viewport height */
+}
+
+.profile-frame > .container {
+  border: 2px solid #ccc; /* Add border around the container */
+  padding: 20px;
+  border-radius: 10px; /* Add border-radius for rounded corners */
+}
