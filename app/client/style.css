@@ -49,3 +49,41 @@ hr.underline {
   height: 1px;
   border: none;
 }
+
+.btn-sign {
+  color: ghostwhite !important;
+  background-color: darkgreen !important;
+  border: 2px solid black !important;
+  opacity: 100;
+}
+
+.icon-green {
+  color: darkgreen;
+  font-size: 200px;
+}
+
+.image-circle {
+  border: black !important;
+  border-radius: 50%;
+  width: 150px;
+}
+
+.carousel-control-next-icon {
+  align-content: center;
+  width: 70px !important;
+  height: 70px !important;
+  background-color: darkgreen;
+  border: 2px solid black;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.carousel-control-prev-icon {
+  align-content: center;
+  width: 70px !important;
+  height: 70px !important;
+  background-color: darkgreen;
+  border: 2px solid black;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+}
