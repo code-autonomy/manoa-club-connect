@@ -15,12 +15,14 @@ const containerStyle = {
   borderRadius: '10px', // Add border-radius for rounded corners
 };
 
+const defaultProfileImage = 'https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_640.png'; // Default profile image URL
+
 const UserProfile = ({ user }) => (
   <div style={frameStyle}> {/* Apply inline style for framing */}
     <Container style={containerStyle}>
       <Row className="mt-5">
         <Col className="text-center">
-          <Image src={user.profilePicture} roundedCircle style={{ width: '150px', height: '150px' }} alt="Profile" />
+          <Image src={user.profilePicture || defaultProfileImage} roundedCircle style={{ width: '150px', height: '150px' }} alt="Profile" />
           <h2 className="mt-3">{user.username}</h2>
         </Col>
       </Row>
@@ -42,9 +44,8 @@ UserProfile.propTypes = {
 UserProfile.defaultProps = {
   user: {
     username: 'Default Username',
-    profilePicture: 'default-profile-picture.jpg',
+    profilePicture: defaultProfileImage,
     bio: 'Default Bio',
   },
 };
-
 export default UserProfile;
