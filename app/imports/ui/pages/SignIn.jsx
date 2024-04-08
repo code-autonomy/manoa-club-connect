@@ -49,7 +49,7 @@ const SignIn = () => {
         <Link id="register-btn" to="/signup" role="button" className="btn btn-outline-dark btn-lg m-4">Register Now!</Link>
       </Col>
       <Col className="text-center sign-in-right py-3">
-        <Card className="card-login mx-auto mt-3 py-3">
+        <Card className="card-login mx-auto mt-5 py-3">
           <CardBody>
             <h1 className="mb-3">Login</h1>
             <AutoForm schema={bridge} onSubmit={data => submit(data)}>
