@@ -43,10 +43,10 @@ const SignIn = () => {
   return (
     <Row id="signin" fluid className="signin-bg">
       <Col className="sign-in-left text-start py-auto">
-        <h2>Sign In to Access Your Clubs</h2>
-        <h3>Don&apos;t Have An Account?</h3>
-        <h3>Become a Manoa Club Connect Member to find YOU&apos;RE fit!</h3>
-        <Link id="register-btn" to="/signup" role="button" className="btn btn-outline-dark btn-lg m-4">Register Now!</Link>
+        <h2 className="signin-text">Sign In to Access Your Clubs</h2>
+        <h3 className="signin-text">Don&apos;t Have An Account?</h3>
+        <h3 className="signin-text">Become a Manoa Club Connect Member to find YOU&apos;RE fit!</h3>
+        <Link id="register-btn" to="/signup" role="button" className="signin-text btn btn-outline-dark btn-lg m-4">Register Now!</Link>
       </Col>
       <Col className="text-center sign-in-right py-3">
         <Card className="card-login mx-auto mt-5 py-3">
