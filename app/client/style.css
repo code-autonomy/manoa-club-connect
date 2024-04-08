@@ -94,3 +94,45 @@ hr.underline {
   border-bottom-left-radius: 50%;
   border-top-left-radius: 50%;
 }
+
+.signin-bg {
+  background: ghostwhite;
+  height: 510px;
+  width: 100%;
+  padding: 0;
+  transform: translate(12px, 0);
+}
+
+.sign-in-left {
+  border-right: 1px solid black;
+  background: rgba(0,64,0,0.75);
+  clip-path: polygon(0 20%, 90% 0, 100% 100%, 60% 100%);
+}
+
+.sign-in-left h2 {
+  margin-top: 100px;
+  margin-left: 30px;
+  color: whitesmoke;
+}
+
+.sign-in-right {
+
+}
+
+.card-login {
+  width: 350px;
+  position: absolute;
+}
+
+#signin-form-submit .btn{
+  background: darkgreen;
+  border: none;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#signin-alert {
+  font-size: 1rem;
+  width: 300px;
+
+}

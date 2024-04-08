@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Card, CardBody, Col, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
@@ -41,36 +41,33 @@ const SignIn = () => {
   }
   // Otherwise return the Login form.
   return (
-    <Container id="signin-page" className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center">
-            <h2>Login to your account</h2>
-          </Col>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
-              <Card.Body>
-                <TextField id="signin-form-email" name="email" placeholder="E-mail address" />
-                <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
-                <ErrorsField />
-                <SubmitField id="signin-form-submit" />
-              </Card.Body>
-            </Card>
-          </AutoForm>
-          <Alert variant="light">
-            <Link to="/signup">Click here to Register</Link>
+    <Row id="signin" fluid className="signin-bg">
+      <Col className="sign-in-left text-center py-3">
+        <h2>Use Your University Email to Login</h2>
+      </Col>
+      <Col className="text-center sign-in-right py-3">
+        <Card className="card-login mx-auto mt-3 py-3">
+          <CardBody>
+            <h1 className="mb-3">Login</h1>
+            <AutoForm schema={bridge} onSubmit={data => submit(data)}>
+              <TextField id="signin-form-email" name="email" placeholder="Enter UH Email" className="text-start" />
+              <TextField id="signin-form-password" name="password" placeholder="Enter Your Password" type="password" className="text-start" />
+              <ErrorsField />
+              <SubmitField id="signin-form-submit" />
+              <Link to="/signup" style={{ color: 'darkgreen' }}>Don&apos;t Have An Account?</Link>
+            </AutoForm>
+          </CardBody>
+        </Card>
+        {error === '' ? (
+          ''
+        ) : (
+          <Alert id="signin-alert" className="mx-auto my-auto" variant="danger">
+            <Alert.Heading>Login Unsuccessful</Alert.Heading>
+            {error}
           </Alert>
-          {error === '' ? (
-            ''
-          ) : (
-            <Alert variant="danger">
-              <Alert.Heading>Login was not successful</Alert.Heading>
-              {error}
-            </Alert>
-          )}
-        </Col>
-      </Row>
-    </Container>
+        )}
+      </Col>
+    </Row>
   );
 };
 
