@@ -94,3 +94,46 @@ hr.underline {
   border-bottom-left-radius: 50%;
   border-top-left-radius: 50%;
 }
+
+.signin-bg {
+  background: ghostwhite;
+  height: 510px;
+  width: 100%;
+  padding: 0;
+  transform: translate(12px, 0);
+}
+
+.sign-in-left {
+  background: linear-gradient(to bottom right, rgba(41,173,178,0.75), rgba(0,64,0,0.75));
+  /*clip-path: polygon(0 0, 100% 0, 80% 50%, 100% 100%, 0 100%);*/
+  clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%);
+}
+
+.sign-in-left h2, h3 {
+  margin-top: 100px;
+  margin-left: 30px;
+  color: whitesmoke;
+}
+
+.sign-in-right {
+  background: linear-gradient(to bottom right, rgba(41,173,178,0.75), rgba(0,64,0,0.75));
+  /*clip-path: polygon(0 50%, 20% 0, 100% 0, 100% 100%, 20% 100%);*/
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 20% 50%);
+}
+
+.card-login {
+  width: 350px;
+  position: absolute;
+}
+
+#signin-form-submit .btn{
+  background: darkgreen;
+  border: none;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#signin-alert {
+  font-size: 1rem;
+  width: 300px;
+}

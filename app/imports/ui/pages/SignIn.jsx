@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Card, CardBody, Col, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, SubmitField, TextField } from 'uniforms-bootstrap5';
 
 /**
  * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
@@ -41,36 +41,34 @@ const SignIn = () => {
   }
   // Otherwise return the Login form.
   return (
-    <Container id="signin-page" className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center">
-            <h2>Login to your account</h2>
-          </Col>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
-              <Card.Body>
-                <TextField id="signin-form-email" name="email" placeholder="E-mail address" />
-                <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
-                <ErrorsField />
-                <SubmitField id="signin-form-submit" />
-              </Card.Body>
-            </Card>
-          </AutoForm>
-          <Alert variant="light">
-            <Link to="/signup">Click here to Register</Link>
+    <Row id="signin" fluid className="signin-bg">
+      <Col className="sign-in-left text-start py-auto">
+        <h2>Sign In to Access Your Clubs</h2>
+        <h3>Don&apos;t Have An Account?</h3>
+        <h3>Become a Manoa Club Connect Member to find YOU&apos;RE fit!</h3>
+        <Link id="register-btn" to="/signup" role="button" className="btn btn-outline-dark btn-lg m-4">Register Now!</Link>
+      </Col>
+      <Col className="text-center sign-in-right py-3">
+        <Card className="card-login mx-auto mt-5 py-3">
+          <CardBody>
+            <h1 className="mb-3">Login</h1>
+            <AutoForm schema={bridge} onSubmit={data => submit(data)}>
+              <TextField id="signin-form-email" name="email" placeholder="Enter UH Email" className="text-start" />
+              <TextField id="signin-form-password" name="password" placeholder="Enter Your Password" type="password" className="text-start" />
+              <SubmitField id="signin-form-submit" />
+            </AutoForm>
+          </CardBody>
+        </Card>
+        {error === '' ? (
+          ''
+        ) : (
+          <Alert id="signin-alert" className="mx-auto my-auto" variant="danger">
+            <Alert.Heading>Login Unsuccessful</Alert.Heading>
+            {error}
           </Alert>
-          {error === '' ? (
-            ''
-          ) : (
-            <Alert variant="danger">
-              <Alert.Heading>Login was not successful</Alert.Heading>
-              {error}
-            </Alert>
-          )}
-        </Col>
-      </Row>
-    </Container>
+        )}
+      </Col>
+    </Row>
   );
 };
 
