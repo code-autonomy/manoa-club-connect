@@ -95,6 +95,10 @@ hr.underline {
   border-top-left-radius: 50%;
 }
 
+<<<<<<< HEAD
+=======
+<!-- HEAD -->
+>>>>>>> 83921c27310fc72ed24dfd26dcd40deba3219cd0
 .signin-bg {
   background: ghostwhite;
   height: 90vh;
@@ -142,18 +146,33 @@ hr.underline {
 #signin-alert {
   font-size: 1rem;
   width: 300px;
+<<<<<<< HEAD
 = = = = = = = . profile-frame {
+=======
+}
+
+.profile-frame {
+>>>>>>> 83921c27310fc72ed24dfd26dcd40deba3219cd0
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; /* Set height to 100% of viewport height */
 }
 
+<<<<<<< HEAD
   .profile-frame > .container {
+=======
+.profile-frame > .container {
+>>>>>>> 83921c27310fc72ed24dfd26dcd40deba3219cd0
     border: 2px solid #ccc; /* Add border around the container */
     padding: 20px;
     border-radius: 10px; /* Add border-radius for rounded corners */
   }
+<<<<<<< HEAD
 }
 
+=======
+
+<!-- user-profile-page -->
+>>>>>>> 83921c27310fc72ed24dfd26dcd40deba3219cd0
 
