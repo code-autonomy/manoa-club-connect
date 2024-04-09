@@ -104,10 +104,8 @@ hr.underline {
   clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%);
 }
 
-.sign-in-left h2,
-.sign-in-left h3 { /* corrected */
+.sign-in-left h2 { /* corrected */
   margin-top: 100px;
-  margin-left: 30px;
   color: whitesmoke;
 }
 
