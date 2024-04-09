@@ -62,7 +62,7 @@ const SignIn = () => {
         {error === '' ? (
           ''
         ) : (
-          <Alert id="signin-alert" className="mx-auto my-auto" variant="danger">
+          <Alert id="signin-alert" className="mx-auto mt-5" variant="danger">
             <Alert.Heading>Login Unsuccessful</Alert.Heading>
             {error}
           </Alert>

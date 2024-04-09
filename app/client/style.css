@@ -130,6 +130,7 @@ hr.underline {
   width: 350px;
   position: absolute;
   top: 10%;
+  box-shadow: 2px 5px 5px black;
 }
 
 #signin-form-submit .btn{
@@ -142,4 +143,14 @@ hr.underline {
 #signin-alert {
   font-size: 1rem;
   width: 300px;
+}
+
+.conic-bg {
+  background: conic-gradient(
+      rgba(41,173,178,0.75),
+      rgba(0,64,0,0.75),
+      /*rgba(21,119,89,0.75)*/
+      rgba(41,173,178,0.75)
+  );
+  height: 90vh;
 }
