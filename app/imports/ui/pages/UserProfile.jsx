@@ -1,38 +1,34 @@
 import React from 'react';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import UserPropTypes from '../components/User'; // Correct import path
-
-const frameStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '100vh', // Set height to 100% of viewport height
-};
-
-const containerStyle = {
-  border: '2px solid #ccc', // Add border around the container
-  padding: '200px',
-  borderRadius: '10px', // Add border-radius for rounded corners
-};
 
 const defaultProfileImage = 'https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_640.png'; // Default profile image URL
 
 const UserProfile = ({ user }) => (
-  <div style={frameStyle}> {/* Apply inline style for framing */}
-    <Container style={containerStyle}>
-      <Row className="mt-5">
-        <Col className="text-center">
+  <Container fluid>
+    <Row className="mt-5">
+      <Col xs={12} md={4} className="text-left">
+        <div className="text-center">
           <Image src={user.profilePicture || defaultProfileImage} roundedCircle style={{ width: '150px', height: '150px' }} alt="Profile" />
-          <h2 className="mt-3">{user.username}</h2>
-        </Col>
-      </Row>
-      <Row className="mt-4">
-        <Col className="text-center">
+        </div>
+        <div className="text-center mt-3">
+          <h2>{user.username}</h2>
           <p>{user.bio}</p>
-        </Col>
-      </Row>
-    </Container>
-  </div>
+        </div>
+      </Col>
+      <Col xs={12} md={8}>
+        <div>
+          <h3>Clubs</h3>
+          <div className="d-flex justify-content-start">
+            <Button variant="primary" style={{ fontSize: '20px', padding: '10px 20px' }} className="mx-3">Club 1</Button>
+            <Button variant="warning" style={{ fontSize: '20px', padding: '10px 20px' }} className="mx-3">Club 2</Button>
+            <Button variant="success" style={{ fontSize: '20px', padding: '10px 20px' }} className="mx-3">Club 3</Button>
+            {/* Add more buttons with custom sizes as needed */}
+          </div>
+        </div>
+      </Col>
+    </Row>
+  </Container>
 );
 
 // Apply PropTypes to the component
