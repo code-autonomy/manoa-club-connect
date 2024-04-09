@@ -40,31 +40,31 @@ const SignUp = ({ location }) => {
     return <Navigate to={from} />;
   }
   return (
-    <Container id="signup-page" className="py-3">
+    <Container fluid id="signup-page" className="py-3 conic-bg">
       <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center">
-            <h2>Register your account</h2>
-          </Col>
+        <Col xs={5} className="text-center py-3">
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
+            <Card className="card-login mx-auto mt-5 py-3">
               <Card.Body>
-                <TextField name="email" placeholder="E-mail address" />
-                <TextField name="password" placeholder="Password" type="password" />
+                <h1 className="mb-3">Sign Up</h1>
+                <TextField name="email" placeholder="UH E-mail address" className="text-start" />
+                <TextField name="password" placeholder="Password" type="password" className="text-start" />
                 <ErrorsField />
-                <SubmitField />
+                <SubmitField id="signin-form-submit" />
+                <hr />
+                <span>
+                  <h6>Already Have An Account?
+                    {' '}
+                    <Link to="/signin" style={{ color: 'darkgreen' }}>Sign In</Link>
+                  </h6>
+                </span>
               </Card.Body>
             </Card>
           </AutoForm>
-          <Alert variant="light">
-            Already have an account? Login
-            {' '}
-            <Link to="/signin">here</Link>
-          </Alert>
           {error === '' ? (
             ''
           ) : (
-            <Alert variant="danger">
+            <Alert id="signin-alert" variant="danger" className="mx-auto mt-5">
               <Alert.Heading>Registration was not successful</Alert.Heading>
               {error}
             </Alert>
