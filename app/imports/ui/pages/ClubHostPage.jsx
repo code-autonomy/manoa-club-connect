@@ -15,14 +15,14 @@ const containerStyle = {
   borderRadius: '10px', // Add border-radius for rounded corners
 };
 
-const defaultProfileImage = 'https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_640.png'; // Default profile image URL
+const defaultClubImage = 'app/public/images/defaultClubImage.jpg'; // Default profile image URL
 
 const ClubHostPage = ({ club }) => (
   <div style={frameStyle}> {/* Apply inline style for framing */}
     <Container style={containerStyle}>
       <Row className="mt-5">
         <Col className="text-center">
-          <Image src={club.clubPicture || defaultProfileImage} roundedCircle style={{ width: '150px', height: '150px' }} alt="Profile" />
+          <Image src={{ defaultClubImage }} roundedCircle style={{ width: '150px', height: '150px' }} alt="Club" />
           <h2 className="mt-3">{club.username}</h2>
         </Col>
       </Row>
@@ -44,7 +44,7 @@ ClubHostPage.propTypes = {
 ClubHostPage.defaultProps = {
   club: {
     clubname: 'Default Club name',
-    clubPicture: defaultProfileImage,
+    clubPicture: defaultClubImage,
     bio: 'Default Bio',
   },
 };
