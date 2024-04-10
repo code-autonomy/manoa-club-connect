@@ -45,7 +45,7 @@ const SignIn = () => {
       <Col className="sign-in-left text-start py-auto">
         <h2 className="signin-text ms-4">Sign In to Access Your Clubs</h2>
         <h3 className="signin-text ms-4">Don&apos;t Have An Account?</h3>
-        <h3 className="signin-text ms-4">Become a Manoa Club Connect Member to find YOU&apos;RE fit!</h3>
+        <h3 className="signin-text ms-4">Become a Manoa Club Connect Member to find YOUR fit!</h3>
         <Link id="register-btn" to="/signup" role="button" className="signin-text btn btn-outline-dark btn-lg m-4">Register Now!</Link>
       </Col>
       <Col className="text-center sign-in-right py-3">
