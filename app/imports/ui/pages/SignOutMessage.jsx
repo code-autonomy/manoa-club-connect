@@ -14,7 +14,7 @@ const SignOutMessage = () => {
   return (
     <div className="sign-out-message">
       <h2>You have signed out of your account.</h2>
-      <p>Redirecting to the landing page...</p>
+      <p>Redirecting to the Homepage...</p>
     </div>
   );
 };
