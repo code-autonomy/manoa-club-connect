@@ -151,7 +151,12 @@ hr.underline {
 }
 
 .profile-frame > .container {
+
     border: 2px solid #ccc; /* Add border around the container */
     padding: 20px;
     border-radius: 10px; /* Add border-radius for rounded corners */
+
+  border: 2px solid #ccc; /* Add border around the container */
+  padding: 50px;
+  border-radius: 10px; /* Add border-radius for rounded corners */
 }
