@@ -27,6 +27,7 @@ const UserProfile = ({ user }) => (
           </div>
         </div>
       </Col>
+
     </Row>
   </Container>
 );
