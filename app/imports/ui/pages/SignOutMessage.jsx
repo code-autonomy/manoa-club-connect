@@ -1,12 +1,6 @@
 import React, { useEffect } from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Col } from 'react-bootstrap';
-import SignOutMessage from './SignOutMessage';
 
-const SignOut = () => {
-  // Perform sign-out logic
-  Meteor.logout();
-
+const SignOutMessage = () => {
   useEffect(() => {
     // Redirect to the landing page after 3 seconds
     const timer = setTimeout(() => {
@@ -18,10 +12,11 @@ const SignOut = () => {
   }, []);
 
   return (
-    <Col id="signout-page" className="text-center py-3">
-      <SignOutMessage />
-    </Col>
+    <div className="sign-out-message">
+      <h2>You have signed out of your account.</h2>
+      <p>Redirecting to the Homepage...</p>
+    </div>
   );
 };
 
-export default SignOut;
+export default SignOutMessage;
