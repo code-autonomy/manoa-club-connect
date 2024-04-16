@@ -15,7 +15,7 @@ const containerStyle = {
   borderRadius: '10px', // Add border-radius for rounded corners
 };
 
-const defaultClubImage = 'https://flowbite.com/docs/images/examples/image-1@2x.jpg'; // Default profile image URL
+const defaultClubImage = '/images/defaultClubImage.jpg'; // Default profile image URL
 
 const ClubHostPage = ({ club }) => {
   const [editing, setEditing] = useState(false);
@@ -49,9 +49,9 @@ const ClubHostPage = ({ club }) => {
   return (
     <div style={frameStyle}>
       <Container style={containerStyle}>
-        <Row className="mt-5">
+        <Row className="mt-3">
           <Col className="text-center">
-            <Image src={newClub.clubPicture || defaultClubImage} style={{ width: '300px', height: '150px', objectFit: 'cover' }} alt="Club" />
+            <Image roundedCircle src={newClub.clubPicture || defaultClubImage} style={{ width: '450px', objectFit: 'fill' }} alt="Club" />
             {editing ? (
               <input type="text" name="clubName" value={newClub.clubName} onChange={handleChange} />
             ) : (
