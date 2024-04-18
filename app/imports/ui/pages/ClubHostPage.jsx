@@ -53,7 +53,9 @@ const ClubHostPage = ({ club }) => {
           <Col className="text-center">
             <Image roundedCircle src={newClub.clubPicture || defaultClubImage} style={{ width: '450px', objectFit: 'fill' }} alt="Club" />
             {editing ? (
-              <input type="text" name="clubName" value={newClub.clubName} onChange={handleChange} />
+              <div className="mt-3">
+                <input type="text" name="clubName" value={newClub.clubName} onChange={handleChange} style={{ width: '100%' }} />
+              </div>
             ) : (
               <h2 className="mt-3">{newClub.clubName}</h2>
             )}
@@ -62,7 +64,7 @@ const ClubHostPage = ({ club }) => {
         <Row className="mt-4">
           <Col className="text-center">
             {editing ? (
-              <textarea name="bio" value={newClub.bio} onChange={handleChange} />
+              <textarea name="bio" value={newClub.bio} onChange={handleChange} style={{ width: '100%' }} />
             ) : (
               <p>{newClub.bio}</p>
             )}
