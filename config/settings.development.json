@@ -6,6 +6,11 @@
 
   "defaultAccounts": [
     { "email": "superadmin@foo.com", "password": "changeme", "role": "superadmin" },
+    { "email": "jhasun@hawaii.edu", "password": "changeme", "role": "superadmin" },
+    { "email": "cmilanes@hawaii.edu", "password": "changeme", "role": "superadmin" },
+    { "email": "byrongs@hawaii.edu", "password": "changeme", "role": "superadmin" },
+    { "email": "luisy@hawaii.edu", "password": "changeme", "role": "superadmin" },
+    { "email": "eto8@hawaii.edu", "password": "changeme", "role": "superadmin" },
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
