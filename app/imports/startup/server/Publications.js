@@ -7,15 +7,26 @@ import { Stuffs } from '../../api/stuff/Stuff';
 Meteor.publish(Stuffs.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Stuffs.collection.find({ owner: username });
+    return Stuffs.collection.find({
+      owner: username,
+    });
   }
   return this.ready();
 });
 
 // Admin-level publication.
-// If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
+// If logged in and with admin role, then publish all documents from club. Otherwise, publish nothing.
 Meteor.publish(Stuffs.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Stuffs.collection.find();
+  }
+  return this.ready();
+});
+
+// SuperAdmin-level publication.
+// If logged in and with superadmin role, then publish all documents from all clubs. Otherwise, publish nothing.
+Meteor.publish(Stuffs.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'superadmin')) {
     return Stuffs.collection.find();
   }
   return this.ready();

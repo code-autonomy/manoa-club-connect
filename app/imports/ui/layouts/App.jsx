@@ -44,7 +44,7 @@ const App = () => {
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
-          <Route path="/ClubHostPage" element={<ProtectedRoute><ClubHostPage /></ProtectedRoute>} />
+          <Route path="/ClubHostPage" element={<SuperAdminProtectedRoute><ClubHostPage /></SuperAdminProtectedRoute>} />
           <Route path="/ClubCategoriesPage" element={<ProtectedRoute><ClubCategoriesPage /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
@@ -84,6 +84,23 @@ const AdminProtectedRoute = ({ ready, children }) => {
   return (isLogged && isAdmin) ? children : <Navigate to="/notauthorized" />;
 };
 
+/**
+ * SuperAdminProtectedRoute (see React Router v6 sample)
+ * Checks for Meteor login and superadmin role before routing to the requested page, otherwise goes to signin page.
+ * @param {any} { component: Component, ...rest }
+ */
+const SuperAdminProtectedRoute = ({ ready, children }) => {
+  const isLogged = Meteor.userID() !== null;
+  if (!isLogged) {
+    return <Navigate to="/signin" />;
+  }
+  if (!ready) {
+    return <LoadingSpinner />;
+  }
+  const isSuperAdmin = Roles.userIsInRole(Meteor.userId(), 'superadmin');
+  return (isLogged && isSuperAdmin) ? children : <Navigate to="/notauthorized" />;
+};
+
 // Require a component and location to be passed to each ProtectedRoute.
 ProtectedRoute.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
@@ -100,6 +117,16 @@ AdminProtectedRoute.propTypes = {
 };
 
 AdminProtectedRoute.defaultProps = {
+  ready: false,
+  children: <Landing />,
+};
+
+SuperAdminProtectedRoute.propTypes = {
+  ready: PropTypes.bool,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+};
+
+SuperAdminProtectedRoute.defaultProps = {
   ready: false,
   children: <Landing />,
 };
