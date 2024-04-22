@@ -48,7 +48,7 @@ const Landing = () => {
                 <h4 className="mt-3">What&apos;re You Up To Now?</h4>
               </Row>
               <Row className="m-3" style={{ borderTop: 'black solid 1px' }}>
-                <Col style={{ borderLeft: 'black solid 1px', height: '17rem' }}>
+                <Col className="gradient-up-blue" style={{ borderLeft: 'black solid 1px', height: '17rem' }}>
                   <Link
                     id="user-profile-nav"
                     to="/UserProfile"
@@ -59,7 +59,7 @@ const Landing = () => {
                     User Profile
                   </Link>
                 </Col>
-                <Col style={{ borderRight: 'black solid 1px', borderLeft: 'black solid 1px' }}>
+                <Col className="gradient-up-green" style={{ borderRight: 'black solid 1px', borderLeft: 'black solid 1px' }}>
                   <Link
                     id="clubs-nav"
                     to="/ClubCategoriesPage"
@@ -69,7 +69,7 @@ const Landing = () => {
                     Explore Clubs
                   </Link>
                 </Col>
-                <Col style={{ borderRight: 'black solid 1px' }}>
+                <Col className="gradient-up-blue" style={{ borderRight: 'black solid 1px' }}>
                   <Link
                     id="navbar-sign-out"
                     to="/signout"

@@ -114,6 +114,14 @@ hr.underline {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 20% 50%);
 }
 
+.gradient-up-blue {
+  background: linear-gradient(to bottom, rgba(41,173,178,0.5), rgba(0,0,0,0));
+}
+
+.gradient-up-green {
+  background: linear-gradient(to bottom, rgba(0,64,0,0.5), rgba(0,0,0,0));
+}
+
 .card-login {
   width: 350px;
   position: absolute;
