@@ -4,7 +4,6 @@ import { NavLink, Link } from 'react-router-dom';
 import { PersonArmsUp } from 'react-bootstrap-icons';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Roles } from 'meteor/alanning:roles';
 
 /* A simple static component to render a carousel for the landing page. */
 const Landing = () => {
