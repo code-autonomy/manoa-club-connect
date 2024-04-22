@@ -44,10 +44,10 @@ const App = () => {
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
-          <Route path="/ClubHostPage" element={<SuperAdminProtectedRoute><ClubHostPage /></SuperAdminProtectedRoute>} />
+          <Route path="/ClubHostPage" element={<AdminProtectedRoute><ClubHostPage /></AdminProtectedRoute>} />
           <Route path="/ClubCategoriesPage" element={<ProtectedRoute><ClubCategoriesPage /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
-          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
+          <Route path="/admin" element={<SuperAdminProtectedRoute ready={ready}><ListStuffAdmin /></SuperAdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -90,7 +90,7 @@ const AdminProtectedRoute = ({ ready, children }) => {
  * @param {any} { component: Component, ...rest }
  */
 const SuperAdminProtectedRoute = ({ ready, children }) => {
-  const isLogged = Meteor.userID() !== null;
+  const isLogged = Meteor.userId() !== null;
   if (!isLogged) {
     return <Navigate to="/signin" />;
   }
