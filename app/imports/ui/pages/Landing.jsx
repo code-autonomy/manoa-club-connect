@@ -47,8 +47,8 @@ const Landing = () => {
                 <h1>Welcome Back!</h1>
                 <h4 className="mt-3">What&apos;re You Up To Now?</h4>
               </Row>
-              <Row className="m-3" style={{ borderTop: 'black solid 1px' }}>
-                <Col className="gradient-up-blue" style={{ borderLeft: 'black solid 1px', height: '17rem' }}>
+              <Row className="m-3">
+                <Col className="pt-4 gradient-up-blue" style={{ borderLeft: 'black solid 1px', height: '17rem' }}>
                   <Link
                     id="user-profile-nav"
                     to="/UserProfile"
@@ -58,8 +58,10 @@ const Landing = () => {
                   >
                     User Profile
                   </Link>
+                  <h3 className="mt-5">Check out and edit your preferences</h3>
                 </Col>
-                <Col className="gradient-up-green" style={{ borderRight: 'black solid 1px', borderLeft: 'black solid 1px' }}>
+                <Col className="pt-5 gradient-down-green" style={{ borderRight: 'black solid 1px', borderLeft: 'black solid 1px' }}>
+                  <h3 className="mb-3">Browse all of the different clubs!</h3>
                   <Link
                     id="clubs-nav"
                     to="/ClubCategoriesPage"
@@ -69,7 +71,7 @@ const Landing = () => {
                     Explore Clubs
                   </Link>
                 </Col>
-                <Col className="gradient-up-blue" style={{ borderRight: 'black solid 1px' }}>
+                <Col className="pt-4 gradient-up-blue" style={{ borderRight: 'black solid 1px' }}>
                   <Link
                     id="navbar-sign-out"
                     to="/signout"
