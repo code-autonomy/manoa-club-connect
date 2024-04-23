@@ -45,4 +45,5 @@ UserProfile.defaultProps = {
     bio: 'Default Bio',
   },
 };
+
 export default UserProfile;
