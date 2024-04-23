@@ -12,11 +12,11 @@ const formSchema = new SimpleSchema({
   organization: String,
   dateApproved: String,
   expiration: String,
-  type: {
+  clubType: {
     type: String,
     allowedValues: ['Sports', 'Arts & Crafts', 'Academic', 'Social', 'Service'],
   },
-  email: String,
+  clubEmail: String,
   purpose: String,
 });
 
@@ -27,10 +27,10 @@ const AddClub = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { organization, dateApproved, expiration, type, email, purpose } = data;
+    const { organization, dateApproved, expiration, clubType, clubEmail, purpose } = data;
     const owner = Meteor.user().username;
     Clubs.collection.insert(
-      { organization, dateApproved, expiration, type, email, purpose, owner },
+      { organization, dateApproved, expiration, clubType, clubEmail, purpose, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -52,12 +52,12 @@ const AddClub = () => {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="clubName" />
+                <TextField name="organization" />
                 <TextField name="dateApproved" />
-                <TextField name="dateRenewal" />
-                <SelectField name="clubType" />
+                <TextField name="expiration" />
+                <SelectField name="clubType" placeholder="Choose Club Type" />
                 <TextField name="clubEmail" />
-                <LongTextField name="clubPurpose" />
+                <LongTextField name="purpose" maxLength={50} />
                 <SubmitField value="submit" />
                 <ErrorsField />
               </Card.Body>
