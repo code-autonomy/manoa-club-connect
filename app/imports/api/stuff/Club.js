@@ -15,12 +15,8 @@ class ClubsCollection {
       organization: String,
       dateApproved: String,
       expiration: String,
-      clubType: {
-        type: String,
-        allowedValues: ['Sports', 'Arts & Crafts', 'Academic', 'Social', 'Service', 'Other'],
-        defaultValue: 'Other',
-      },
-      clubEmail: String,
+      type: String,
+      email: String,
       purpose: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
