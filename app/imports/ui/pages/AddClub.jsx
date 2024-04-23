@@ -12,11 +12,12 @@ const formSchema = new SimpleSchema({
   organization: String,
   dateApproved: String,
   expiration: String,
-  clubType: {
+  type: {
     type: String,
-    allowedValues: ['Sports', 'Arts & Crafts', 'Academic', 'Social', 'Service'],
+    allowedValues: ['Academic/Professional', 'Political', 'Sports/Leisure', 'Religious/Spiritual', 'Service', 'Fraternity/Sorority', 'Ethnic/Cultural', 'Honorary Society', 'Leisure/Recreational', 'Other'],
+    defaultValue: 'Other',
   },
-  clubEmail: String,
+  email: String,
   purpose: String,
 });
 
@@ -27,10 +28,10 @@ const AddClub = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { organization, dateApproved, expiration, clubType, clubEmail, purpose } = data;
+    const { organization, dateApproved, expiration, type, email, purpose } = data;
     const owner = Meteor.user().username;
     Clubs.collection.insert(
-      { organization, dateApproved, expiration, clubType, clubEmail, purpose, owner },
+      { organization, dateApproved, expiration, type, email, purpose, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -55,8 +56,8 @@ const AddClub = () => {
                 <TextField name="organization" />
                 <TextField name="dateApproved" />
                 <TextField name="expiration" />
-                <SelectField name="clubType" placeholder="Choose Club Type" />
-                <TextField name="clubEmail" />
+                <SelectField name="type" placeholder="Choose Club Type" />
+                <TextField name="email" />
                 <LongTextField name="purpose" maxLength={50} />
                 <SubmitField value="submit" />
                 <ErrorsField />
