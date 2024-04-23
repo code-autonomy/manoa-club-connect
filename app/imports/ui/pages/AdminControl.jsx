@@ -4,7 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row, Popover, OverlayTrigger } from 'react-bootstrap';
 import { PlusCircle } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
-import { Clubs } from '../../api/stuff/Club';
+import { Clubs } from '../../api/club/Club';
 import ClubItemAdmin from '../components/ClubItemAdmin';
 import LoadingSpinner from '../components/LoadingSpinner';
 

@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Meteor } from 'meteor/meteor';
-import { Clubs } from '../../api/stuff/Club';
+import { Clubs } from '../../api/club/Club.js';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
