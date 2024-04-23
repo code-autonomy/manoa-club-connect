@@ -1,9 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
-/**
- * The ClubsCollection. It encapsulates state and variable values for clubs.
- */
 class ClubsCollection {
   constructor() {
     // The name of this collection.
@@ -24,12 +21,8 @@ class ClubsCollection {
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
     this.adminPublicationName = `${this.name}.publication.admin`;
-    this.superAdminPublicationName = `${this.name}.publication.superadmin`;
   }
 }
 
-/**
- * The singleton instance of the ClubsCollection.
- * @type {ClubsCollection}
- */
+// Singleton instance of the ClubsCollection
 export const Clubs = new ClubsCollection();
