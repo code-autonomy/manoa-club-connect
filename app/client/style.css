@@ -88,6 +88,7 @@ hr.underline {
 
 .signin-bg {
   background: ghostwhite;
+  position: absolute;
   height: 90vh;
   width: 100%;
   padding: 0;

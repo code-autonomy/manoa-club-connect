@@ -1,13 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Clubs } from '../../api/stuff/Club';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise, publish nothing.
-Meteor.publish(Stuffs.userPublicationName, function () {
+Meteor.publish(Clubs.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Stuffs.collection.find({
+    return Clubs.collection.find({
       owner: username,
     });
   }
@@ -16,18 +16,18 @@ Meteor.publish(Stuffs.userPublicationName, function () {
 
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from club. Otherwise, publish nothing.
-Meteor.publish(Stuffs.adminPublicationName, function () {
+Meteor.publish(Clubs.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Stuffs.collection.find();
+    return Clubs.collection.find();
   }
   return this.ready();
 });
 
 // SuperAdmin-level publication.
 // If logged in and with superadmin role, then publish all documents from all clubs. Otherwise, publish nothing.
-Meteor.publish(Stuffs.adminPublicationName, function () {
+Meteor.publish(Clubs.superAdminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'superadmin')) {
-    return Stuffs.collection.find();
+    return Clubs.collection.find();
   }
   return this.ready();
 });

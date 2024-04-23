@@ -22,5 +22,13 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" },
     { "name": "Banana", "quantity": 2, "owner": "superadmin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "superadmin@foo.com", "condition": "excellent" }
+  ],
+  "defaultClub": [
+    { "organization": "8bit",
+      "dateApproved": "March 4, 2024",
+      "expiration": "September 30, 2024",
+      "type": "Service",
+      "email": "lmig4@hawaii.edu",
+      "purpose": "Software solution organization that provides software services to local business or on-campus university departments. Specific software services include but are not limited to : website re-designs, organization management dashboards, mobile applications, data management systems etc. We will also teach practical in real life technical skills in the fields of software development, design and business.\n" }
   ]
 }
