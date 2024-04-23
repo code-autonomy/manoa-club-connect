@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
@@ -21,6 +20,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import ClubHostPage from '../pages/ClubHostPage';
 import SignOutMessage from '../pages/SignOutMessage';
 import ClubCategoriesPage from '../pages/ClubCategoriesPage';
+import AdminControl from '../pages/AdminControl';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -47,7 +47,7 @@ const App = () => {
           <Route path="/ClubHostPage" element={<AdminProtectedRoute><ClubHostPage /></AdminProtectedRoute>} />
           <Route path="/ClubCategoriesPage" element={<ProtectedRoute><ClubCategoriesPage /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
-          <Route path="/admin" element={<SuperAdminProtectedRoute ready={ready}><ListStuffAdmin /></SuperAdminProtectedRoute>} />
+          <Route path="/admin" element={<SuperAdminProtectedRoute ready={ready}><AdminControl /></SuperAdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

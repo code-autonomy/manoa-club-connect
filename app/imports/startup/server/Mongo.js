@@ -1,18 +1,18 @@
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff.js';
+import { Clubs } from '../../api/stuff/Club.js';
 
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
-const addData = (data) => {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
-  Stuffs.collection.insert(data);
+const addClub = (club) => {
+  console.log(`  Adding: ${club.organization}`);
+  Clubs.collection.insert(club);
 };
 
 // Initialize the StuffsCollection if empty.
-if (Stuffs.collection.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultData.forEach(data => addData(data));
+if (Clubs.collection.find().count() === 0) {
+  if (Meteor.settings.defaultClub) {
+    console.log('Creating default Club.');
+    Meteor.settings.defaultClub.forEach(club => addClub(club));
   }
 }

@@ -2,7 +2,7 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
 /**
- * The StuffsCollection. It encapsulates state and variable values for stuff.
+ * The ClubsCollection. It encapsulates state and variable values for clubs.
  */
 class ClubsCollection {
   constructor() {
@@ -15,7 +15,10 @@ class ClubsCollection {
       organization: String,
       dateApproved: String,
       expiration: String,
-      type: String,
+      type: {
+        type: String,
+        allowedValues: ['Sports', 'Arts & Crafts', 'Academic', 'Social', 'Service'],
+      },
       email: String,
       purpose: String,
     });
@@ -24,11 +27,12 @@ class ClubsCollection {
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
     this.adminPublicationName = `${this.name}.publication.admin`;
+    this.superAdminPublicationName = `${this.name}.publication.superadmin`;
   }
 }
 
 /**
- * The singleton instance of the StuffsCollection.
+ * The singleton instance of the ClubsCollection.
  * @type {ClubsCollection}
  */
 export const Clubs = new ClubsCollection();
