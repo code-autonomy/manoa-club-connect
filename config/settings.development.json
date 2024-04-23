@@ -23,12 +23,31 @@
     { "name": "Banana", "quantity": 2, "owner": "superadmin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "superadmin@foo.com", "condition": "excellent" }
   ],
+
   "defaultClub": [
     { "organization": "8bit",
       "dateApproved": "March 4, 2024",
       "expiration": "September 30, 2024",
-      "type": "Service",
-      "email": "lmig4@hawaii.edu",
-      "purpose": "Software solution organization that provides software services to local business or on-campus university departments. Specific software services include but are not limited to : website re-designs, organization management dashboards, mobile applications, data management systems etc. We will also teach practical in real life technical skills in the fields of software development, design and business.\n" }
+      "clubType": "Service",
+      "clubEmail": "lmig4@hawaii.edu",
+      "purpose": "Software solution organization that provides software services to local business or on-campus university departments. Specific software services include but are not limited to : website re-designs, organization management dashboards, mobile applications, data management systems etc. We will also teach practical in real life technical skills in the fields of software development, design and business.\n" },
+    { "organization": "Anime Manga Society of Hawai'i",
+      "dateApproved": "November 13, 2023",
+      "expiration": "September 30, 2024",
+      "clubType": "Social",
+      "clubEmail": "ams@hawaii.edu",
+      "purpose": "AMS is a leisure club and a gathering place for people to discuss and enjoy anime and anime related things.  We are also hooked up with a few other club that we do combined club related activities.  \n" },
+    { "organization": "Manoa Scholars Club",
+      "dateApproved": "September 14, 2023",
+      "expiration": "September 30, 2024",
+      "clubType": "Academic",
+      "clubEmail": "paigejy@hawaii.edu",
+      "purpose": "The purpose of the Mānoa Scholars Club is to give students the opportunity to represent the best and brightest at UH Mānoa both academically and in character. Students who have a stronger commitment to their university are more likely to retain and enhance their success. Many of the scholars were active members in their high schools and community and would like to carry that same sense of pride and commitment as a University of Hawaiʻi at Mānoa student\n" },
+    { "organization": "Cycle Manoa",
+      "dateApproved": "February 28, 2024",
+      "expiration": "September 30, 2024",
+      "clubType": "Sports",
+      "clubEmail": "wmeinke@hawaii.edu",
+      "purpose": "To educate, advocate, and ride! We are the student and volunteer run bike coop for the university. We provide workshops, free bike repair, and cheap bicycle maintenance to UH students and members of the community, since 2008.\n" }
   ]
 }

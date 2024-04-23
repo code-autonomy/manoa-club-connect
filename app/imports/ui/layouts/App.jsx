@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
-import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
@@ -21,6 +20,7 @@ import ClubHostPage from '../pages/ClubHostPage';
 import SignOutMessage from '../pages/SignOutMessage';
 import ClubCategoriesPage from '../pages/ClubCategoriesPage';
 import AdminControl from '../pages/AdminControl';
+import AddClub from '../pages/AddClub';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -43,8 +43,8 @@ const App = () => {
           <Route path="/signout" element={<SignOutMessage />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
-          <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
-          <Route path="/ClubHostPage" element={<AdminProtectedRoute><ClubHostPage /></AdminProtectedRoute>} />
+          <Route path="/add" element={<SuperAdminProtectedRoute ready={ready}><AddClub /></SuperAdminProtectedRoute>} />
+          <Route path="/ClubHostPage" element={<AdminProtectedRoute ready={ready}><ClubHostPage /></AdminProtectedRoute>} />
           <Route path="/ClubCategoriesPage" element={<ProtectedRoute><ClubCategoriesPage /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<SuperAdminProtectedRoute ready={ready}><AdminControl /></SuperAdminProtectedRoute>} />
