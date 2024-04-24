@@ -36,6 +36,7 @@ const UserProfile = ({ user }) => {
             <input type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'none' }} id="upload-profile-image" />
             <label htmlFor="upload-profile-image">
               <Image src={profileImage} roundedCircle style={{ width: '150px', height: '150px', cursor: 'pointer' }} alt="Profile" />
+              <input type="image" id="upload-profile-image" alt="profile-picture" />
             </label>
           </div>
           <div className="text-center mt-3">
