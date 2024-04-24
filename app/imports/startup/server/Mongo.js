@@ -9,7 +9,7 @@ const addClub = (club) => {
   Clubs.collection.insert(club);
 };
 
-// Initialize the StuffsCollection if empty.
+// Initialize the ClubsCollection if empty.
 if (Clubs.collection.find().count() === 0) {
   if (Meteor.settings.defaultClub) {
     console.log('Creating default Club.');
