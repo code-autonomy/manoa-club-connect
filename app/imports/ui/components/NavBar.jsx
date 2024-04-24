@@ -1,18 +1,17 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { NavLink } from 'react-router-dom'; // Import NavLink
+import { NavLink } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { BoxArrowRight, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
 
 const NavBar = () => {
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
 
-  const linkStyle = { color: 'white' }; // Inline style for white font color
+  const linkStyle = { color: 'white' };
 
   return (
     <Navbar bg="light" expand="lg">
@@ -28,7 +27,7 @@ const NavBar = () => {
               <Nav.Link id="user-home-nav" as={NavLink} to="/UserHomePage" key="UserHomePage" style={linkStyle}>Home</Nav.Link>,
               <Nav.Link id="club-profile-nav" as={NavLink} to="/ClubHostPage" style={linkStyle}>Club Host Page</Nav.Link>,
               <Nav.Link id="clubs-nav" as={NavLink} to="/ClubCategoriesPage" style={linkStyle}>Clubs</Nav.Link>,
-
+              <Nav.Link id="club-list-nav" as={NavLink} to="/ClubListPage" style={linkStyle}>Club List</Nav.Link>, // Add this line for Club List
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" style={linkStyle}>Admin</Nav.Link>
