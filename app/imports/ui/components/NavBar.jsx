@@ -17,7 +17,7 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg" style={{ justifyContent: 'center' }}>
       <Container>
         <Col xs={2}>
-          <Navbar.Brand as={NavLink} to="/" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <Navbar.Brand id="landing-icon" as={NavLink} to="/" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
             <img
               src="https://github.com/code-autonomy/manoa-club-connect/blob/main/app/public/images/club-connect-logo.png?raw=true"
               alt="Club Connect Logo"
@@ -33,7 +33,7 @@ const NavBar = () => {
               {currentUser && (
                 <>
                   <Nav.Link id="user-profile-nav" as={NavLink} to="/UserProfile" key="UserProfile" style={linkStyle} className="me-2">User Profile</Nav.Link>
-                  <Nav.Link id="user-home-nav" as={NavLink} to="/UserHomePage" key="UserHomePage" style={linkStyle} className="me-2">Home</Nav.Link>
+                  {/* <Nav.Link id="user-home-nav" as={NavLink} to="/UserHomePage" key="UserHomePage" style={linkStyle} className="me-2">Home</Nav.Link> */}
                   <Nav.Link id="clubs-nav" as={NavLink} to="/ClubCategoriesPage" style={linkStyle} className="me-2">Explore Clubs</Nav.Link>
                 </>
               )}
