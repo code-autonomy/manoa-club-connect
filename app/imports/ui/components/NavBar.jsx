@@ -30,10 +30,10 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto justify-content-end">
+              {/* Existing navigation links */}
               {currentUser && (
                 <>
                   <Nav.Link id="user-profile-nav" as={NavLink} to="/UserProfile" key="UserProfile" style={linkStyle} className="me-2">User Profile</Nav.Link>
-                  {/* <Nav.Link id="user-home-nav" as={NavLink} to="/UserHomePage" key="UserHomePage" style={linkStyle} className="me-2">Home</Nav.Link> */}
                   <Nav.Link id="clubs-nav" as={NavLink} to="/ClubCategoriesPage" style={linkStyle} className="me-2">Explore Clubs</Nav.Link>
                 </>
               )}
@@ -43,8 +43,12 @@ const NavBar = () => {
               {Roles.userIsInRole(Meteor.userId(), 'superadmin') && (
                 <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" style={linkStyle}>Admin</Nav.Link>
               )}
+
+              {/* Add the "View List" link */}
+              <Nav.Link as={NavLink} to="/ClubListPage" style={linkStyle} className="me-2">View List</Nav.Link>
             </Nav>
             <Nav className="justify-content-end">
+              {/* Existing user authentication links */}
               {currentUser === '' ? (
                 <NavDropdown id="login-dropdown" title="Login" style={{ color: 'white' }}>
                   <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
