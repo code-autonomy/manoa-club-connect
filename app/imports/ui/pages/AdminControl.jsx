@@ -38,7 +38,7 @@ const AdminControl = () => {
               <h2>Current Active Clubs</h2>
             </Col>
             <Col className="ms-auto text-end" style={{ fontSize: '1.5rem' }}>
-              <OverlayTrigger trigger="hover" placement="left" overlay={addClubPopover}>
+              <OverlayTrigger trigger={['hover', 'focus']} placement="left" overlay={addClubPopover}>
                 <Link id="add-club-button" to="/add"><PlusCircle style={{ color: 'black' }} /></Link>
               </OverlayTrigger>
             </Col>
