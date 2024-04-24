@@ -7,6 +7,7 @@ const defaultProfileImage = 'https://cdn.pixabay.com/photo/2018/11/13/21/43/avat
 
 const UserProfile = ({ user }) => {
   const [profileImage, setProfileImage] = useState(user.profilePicture || defaultProfileImage);
+
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
