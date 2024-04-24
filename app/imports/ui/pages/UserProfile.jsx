@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Meteor } from 'meteor/meteor';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { Meteor } from 'meteor/meteor';
 import UserPropTypes from '../components/User'; // Correct import path
 
 const defaultProfileImage = 'https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_640.png'; // Default profile image URL
@@ -29,11 +29,14 @@ const UserProfile = ({ user }) => {
   };
 
   return (
-    <Container id="user-profile" fluid>
+    <Container fluid>
       <Row className="mt-5">
         <Col xs={12} md={4} className="text-left">
           <div className="text-center">
-            <Image src={user.profilePicture || defaultProfileImage} roundedCircle style={{ width: '150px', height: '150px' }} alt="Profile" />
+            <input type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'none' }} id="upload-profile-image" />
+            <label htmlFor="upload-profile-image">
+              <Image src={profileImage} roundedCircle style={{ width: '150px', height: '150px', cursor: 'pointer' }} alt="Profile" />
+            </label>
           </div>
           <div className="text-center mt-3">
             <h2>{user.username}</h2>
@@ -51,7 +54,6 @@ const UserProfile = ({ user }) => {
             </div>
           </div>
         </Col>
-
       </Row>
     </Container>
   );
