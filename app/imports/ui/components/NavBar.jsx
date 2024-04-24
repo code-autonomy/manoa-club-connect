@@ -17,7 +17,7 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg" style={{ justifyContent: 'center' }}>
       <Container>
         <Col xs={2}>
-          <Navbar.Brand as={NavLink} to="/" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <Navbar.Brand id="landing-icon" as={NavLink} to="/" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
             <img
               src="https://github.com/code-autonomy/manoa-club-connect/blob/main/app/public/images/club-connect-logo.png?raw=true"
               alt="Club Connect Logo"

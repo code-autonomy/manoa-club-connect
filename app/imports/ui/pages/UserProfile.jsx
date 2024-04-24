@@ -5,7 +5,7 @@ import UserPropTypes from '../components/User'; // Correct import path
 const defaultProfileImage = 'https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_640.png'; // Default profile image URL
 
 const UserProfile = ({ user }) => (
-  <Container fluid>
+  <Container id="user-profile" fluid>
     <Row className="mt-5">
       <Col xs={12} md={4} className="text-left">
         <div className="text-center">

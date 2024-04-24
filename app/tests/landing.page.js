@@ -26,6 +26,20 @@ class LandingPage {
     }
   }
 
+  async gotoUserProfile(testController) {
+    const visible = await Selector('#slide-1').visible;
+    if (visible) {
+      await testController.click('#user-profile-nav');
+    }
+  }
+
+  async gotoClubCategories(testController) {
+    const visible = await Selector('#slide-1').visible;
+    if (visible) {
+      await testController.click('#clubs-nav');
+    }
+  }
+
   /* Check that specified user is logged in */
   async isLoggedIn(testController, username) {
     const visible = await Selector('#basic-navbar-nav').visible;

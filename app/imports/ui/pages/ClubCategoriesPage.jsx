@@ -13,7 +13,7 @@ const ClubsCategoriesPage = () => {
   ];
 
   return (
-    <Container>
+    <Container id="categories">
       <h2 className="mt-4 mb-4">Club Categories</h2>
       <Row>
         {categories.map(category => (

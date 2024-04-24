@@ -68,6 +68,10 @@ class NavBar {
   async gotoClubCategories(testController) {
     await testController.click('#clubs-nav');
   }
+
+  async gotoLandingPage(testController) {
+    await testController.click('#landing-icon');
+  }
 }
 
 export const navBar = new NavBar();

@@ -29,6 +29,16 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
+test('Test that user can go to User Profile and Club Categories pages', async (testController) => {
+  await landingPage.gotoSignInPage(testController);
+  await signinPage.signin(testController, userCredentials.username, userCredentials.password);
+  await landingPage.gotoUserProfile(testController);
+  await navBar.gotoLandingPage(testController);
+  await landingPage.gotoClubCategories(testController);
+  await navBar.logout(testController);
+  await signoutPage.isDisplayed(testController);
+});
+
 test('Test that admin can login and access Club Host Page', async (testController) => {
   await landingPage.gotoSignInPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
