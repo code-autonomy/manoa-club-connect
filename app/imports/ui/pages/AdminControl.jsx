@@ -39,7 +39,7 @@ const AdminControl = () => {
             </Col>
             <Col className="ms-auto text-end" style={{ fontSize: '1.5rem' }}>
               <OverlayTrigger trigger={['hover', 'focus']} placement="left" overlay={addClubPopover}>
-                <Link id="add-club-button" to="/add"><PlusCircle style={{ color: 'black' }} /></Link>
+                <Link to="/add"><PlusCircle style={{ color: 'black' }} /></Link>
               </OverlayTrigger>
             </Col>
           </Row>
