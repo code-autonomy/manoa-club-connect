@@ -6,9 +6,12 @@ import { navBar } from './navbar.component';
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
-const credentials = { username: 'john@foo.com', password: 'changeme' };
-
-fixture('meteor-application-template-react localhost test with default db')
+const userCredentials = { username: 'john@foo.com', password: 'changeme' };
+/*
+const adminCredentials = { username: 'admin@foo.com', password: 'changeme' };
+const superAdminCredentials = { username: 'superadmin@foo.com', password: 'changeme' };
+*/
+fixture('manoa-club-connect localhost test with default db')
   .page('http://localhost:3000');
 
 test('Test that landing page shows up', async (testController) => {
@@ -16,9 +19,9 @@ test('Test that landing page shows up', async (testController) => {
 });
 
 test('Test that signin and signout work', async (testController) => {
-  await navBar.gotoSignInPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.isLoggedIn(testController, credentials.username);
+  await landingPage.gotoSignInPage(testController);
+  await signinPage.signin(testController, userCredentials.username, userCredentials.password);
+  await navBar.isLoggedIn(testController, userCredentials.username);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });
