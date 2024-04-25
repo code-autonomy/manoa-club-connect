@@ -32,14 +32,9 @@ const ClubCategoriesPage = () => {
 
   return ready ? (
     <Container fluid className="ps-3 mb-5">
-      <Row className="justify-content-center">
+      <Row className="justify-content-center"> {/* Center align the title with the entire page */}
+        <h2 className="text-center">Current Active Clubs</h2>
         <Col md={10}>
-          <Row className="pt-3 mb-3">
-            <Col />
-            <Col className="text-justify">
-              <h2>Current Active Clubs</h2>
-            </Col>
-          </Row>
           {/* Group clubs by category and render a carousel for each category */}
           {Object.entries(groupClubsByCategory(clubs)).map(([category, clubsInCategory]) => (
             <div key={category} className="mb-4">
@@ -51,10 +46,20 @@ const ClubCategoriesPage = () => {
                   nextLabel=""
                   prevLabel="" // Hide default aria-labels
                 >
-                  {clubsInCategory.map((club) => (
-                    <Carousel.Item key={club._id}>
-                      <ClubCards clubs={[club]} />
-                    </Carousel.Item>
+                  {clubsInCategory.map((club, index) => (
+                    // Render multiple cards within each Carousel.Item
+                    index % 3 === 0 && (
+                      <Carousel.Item key={`${category}-${index}`}>
+                        <Row>
+                          {/* eslint-disable-next-line no-shadow */}
+                          {clubsInCategory.slice(index, index + 3).map((club) => (
+                            <Col key={club._id} sm={4}>
+                              <ClubCards clubs={[club]} />
+                            </Col>
+                          ))}
+                        </Row>
+                      </Carousel.Item>
+                    )
                   ))}
                 </Carousel>
               </div>
