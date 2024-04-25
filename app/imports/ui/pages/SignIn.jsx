@@ -41,7 +41,7 @@ const SignIn = () => {
   }
   // Otherwise return the Login form.
   return (
-    <Row id="signin" fluid className="signin-bg">
+    <Row id="signin-page" fluid className="signin-bg">
       <Col className="sign-in-left text-start py-auto">
         <h2 className="signin-text ms-4">Sign In to Access Your Clubs</h2>
         <h3 className="signin-text ms-4">Don&apos;t Have An Account?</h3>

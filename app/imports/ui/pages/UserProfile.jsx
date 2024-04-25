@@ -29,7 +29,7 @@ const UserProfile = ({ user }) => {
   };
 
   return (
-    <Container fluid>
+    <Container id="user-profile" fluid>
       <Row className="mt-5">
         <Col xs={12} md={4} className="text-left">
           <div className="text-center">

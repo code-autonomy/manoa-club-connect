@@ -7,13 +7,13 @@ const ClubItem = ({ club }) => (
   <Card className="h-100 w-100">
     <Card.Header>
       <Card.Title>{club.organization}</Card.Title>
-      <Card.Subtitle>{club.clubType}</Card.Subtitle>
+      <Card.Subtitle>{club.type}</Card.Subtitle>
       <Card.Subtitle>{club.dateApproved} - {club.expiration}</Card.Subtitle>
     </Card.Header>
     <Card.Body>
       <Card.Text>{club.purpose}</Card.Text>
     </Card.Body>
-    <Card.Footer>Contact: {club.clubEmail}</Card.Footer>
+    <Card.Footer>Contact: {club.email}</Card.Footer>
   </Card>
 );
 
@@ -23,8 +23,8 @@ ClubItem.propTypes = {
     organization: PropTypes.string,
     dateApproved: PropTypes.string,
     expiration: PropTypes.string,
-    clubType: PropTypes.string,
-    clubEmail: PropTypes.string,
+    type: PropTypes.string,
+    email: PropTypes.string,
     purpose: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,

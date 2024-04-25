@@ -12,7 +12,11 @@ class ClubsCollection {
       organization: String,
       dateApproved: String,
       expiration: String,
-      type: String,
+      type: {
+        type: String,
+        allowedValues: ['Academic/Professional', 'Political', 'Sports/Leisure', 'Religious/Spiritual', 'Service', 'Fraternity/Sorority', 'Ethnic/Cultural', 'Honorary Society', 'Leisure/Recreational', 'Other'],
+        defaultValue: 'Other',
+      },
       email: String,
       purpose: String,
     });
@@ -21,6 +25,7 @@ class ClubsCollection {
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
     this.adminPublicationName = `${this.name}.publication.admin`;
+    this.superAdminPublicationName = `${this.name}.publication.superadmin`;
   }
 }
 
