@@ -18,9 +18,11 @@ const SignOut = () => {
   }, []);
 
   return (
-    <Col id="signout-page" className="text-center py-3">
-      <SignOutMessage />
-    </Col>
+    <div id="signout-page">
+      <Col className="text-center py-3">
+        <SignOutMessage />
+      </Col>
+    </div>
   );
 };
 
