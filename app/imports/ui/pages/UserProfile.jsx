@@ -1,74 +1,67 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import UserPropTypes from '../components/User';
-// Correct import path
-const defaultProfileImage = 'https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_640.png'; // Default profile image URL
+import { Col, Container, Row, Button } from 'react-bootstrap';
+import { useTracker } from 'meteor/react-meteor-data';
+import { useNavigate } from 'react-router-dom';
+import { Users } from '../../api/Users/User';
+import LoadingSpinner from '../components/LoadingSpinner';
 
-const UserProfile = ({ user }) => {
-  const [profileImage, setProfileImage] = useState(user.profilePicture || defaultProfileImage);
+const UserProfile = () => {
+  const navigate = useNavigate();
+  const goToEditUserPage = (userId) => navigate(`/edituser/${userId}`);
+  const goToLeaveReview = () => navigate('/restaurants-list');
 
-  const handleImageUpload = async (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
+  const goAddRestaurant = () => navigate('/add-restaurant');
 
-    reader.onloadend = async () => {
-      setProfileImage(reader.result);
-      try {
-        const profilePicture = reader.result;
-        await Meteor.call('users.updateProfilePicture', user._id, profilePicture);
-        console.log('Profile picture uploaded successfully');
-      } catch (error) {
-        console.error('Error uploading profile picture:', error);
-      }
+  const { ready, users } = useTracker(() => {
+    const subscription = Meteor.subscribe(Users.userPublicationName);
+    const rdy = subscription.ready();
+    const userProfiles = Users.collection.find({}).fetch();
+    return {
+      users: userProfiles,
+      ready: rdy,
     };
+  }, []);
 
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
+  const currentUser = users.length > 0 ? users[0] : null;
+  const currentUserFirstName = currentUser ? currentUser.firstName : '';
+  const isVendor = currentUser && currentUser.title === 'Vendor';
 
-  return (
-    <Container fluid>
-      <Row className="mt-5">
-        <Col xs={12} md={4} className="text-left">
-          <div className="text-center">
-            <input type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'none' }} id="upload-profile-image" />
-            <label htmlFor="upload-profile-image">
-              <Image src={profileImage} roundedCircle style={{ width: '150px', height: '150px', cursor: 'pointer' }} alt="Profile" />
-            </label>
-          </div>
-          <div className="text-center mt-3">
-            <h2>{user.username}</h2>
-            <p>{user.bio}</p>
-          </div>
+  return (ready ? (
+    <Container fluid id="view-user-page" className="min-vh-100">
+      <Row>
+        <Col md={6}>
+          <Col fluid md={{ span: 4, offset: 3 }} className="text-center">
+            <h2>Hi, {currentUserFirstName}</h2>
+          </Col>
+          {users.map((user) => (
+            <UserProfile key={user._id} user={user} />
+          ))}
+          <Col fluid md={{ span: 4, offset: 3 }} className="d-flex justify-content-center">
+            <Button id="edit-profile-button" size="lg" block className="text-center mt-3 custom-review-button" onClick={() => goToEditUserPage(currentUser._id)}>
+              Edit Your Profile Page
+            </Button>
+          </Col>
         </Col>
-        <Col xs={12} md={8}>
-          <div>
-            <h3>Clubs</h3>
-            <div className="d-flex justify-content-start">
-              <Button variant="primary" style={{ fontSize: '20px', padding: '10px 20px' }} className="mx-3">Club 1</Button>
-              <Button variant="warning" style={{ fontSize: '20px', padding: '10px 20px' }} className="mx-3">Club 2</Button>
-              <Button variant="success" style={{ fontSize: '20px', padding: '10px 20px' }} className="mx-3">Club 3</Button>
-              {/* Add more buttons with custom sizes as needed */}
-            </div>
-          </div>
+        <Col md={6}>
+          {isVendor && (
+            <Col fluid className="text-center py-5">
+              <h2>Want To Add A New Restaurant?</h2>
+              <Button size="lg" block className="text-center mt-3 custom-review-button" onClick={goAddRestaurant}>
+                Add A New Restaurant
+              </Button>
+            </Col>
+          )}
+          <Col className="text-center py-4">
+            <h2>Want To Leave A Review?</h2>
+            <Button size="lg" block className="text-center mt-3 custom-review-button" onClick={goToLeaveReview}>
+              Write A Review
+            </Button>
+          </Col>
         </Col>
       </Row>
     </Container>
-  );
-};
-
-UserProfile.propTypes = {
-  user: UserPropTypes.user,
-};
-
-UserProfile.defaultProps = {
-  user: {
-    username: 'Default Username',
-    profilePicture: defaultProfileImage,
-    bio: 'Default Bio',
-  },
+  ) : <LoadingSpinner />);
 };
 
 export default UserProfile;

@@ -31,14 +31,15 @@ if (Clubs.collection.find().count() === 0) {
     Meteor.settings.defaultClubs.forEach(club => addClub(club));
   }
 }
+
 const addUser = (user) => {
-  console.log(`  Adding: ${user.name} (${user.owner})`);
+  console.log(`  Adding: ${user.email} (${user.owner})`);
   Users.collection.insert(user);
 };
 
 if (Users.collection.find().count() === 0) {
   if (Meteor.settings.defaultUsers) {
     console.log('Creating default data.');
-    Meteor.settings.defaultClubs.forEach(user => addUser(user));
+    Meteor.settings.defaultUsers.forEach(user => addUser(user));
   }
 }
