@@ -11,12 +11,14 @@ const addClub = (club) => {
 };
 
 // Initialize the ClubsCollection if empty.
+
 if (Clubs.collection.find().count() === 0) {
   if (Meteor.settings.defaultClub) {
     console.log('Creating default Club.');
     Meteor.settings.defaultClub.forEach(club => addClub(club));
   }
 }
+
 const addUser = (user) => {
   console.log(`  Adding: ${user.name} (${user.owner})`);
   Users.collection.insert(user);
