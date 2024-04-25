@@ -32,6 +32,11 @@ Meteor.publish(Clubs.superAdminPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish('clubs', function () {
+  // Return data from the Clubs collection
+  return Clubs.collection.find();
+});
+
 // alanning:roles publication
 // Recommended code to publish roles for each user.
 Meteor.publish(null, function () {
