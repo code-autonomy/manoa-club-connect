@@ -2,7 +2,6 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { Clubs } from '../../api/club/Club';
 import { ClubCards } from '../components/ClubCards';
 import LoadingSpinner from '../components/LoadingSpinner';
