@@ -13,6 +13,7 @@ class UsersCollection {
       firstName: { type: String, optional: true },
       lastName: { type: String, optional: true },
       picture: { type: String, optional: true },
+      owner: { type: String },
     });
     // Ensure collection documents obey schema.
     this.collection.attachSchema(this.schema);

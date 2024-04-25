@@ -9,6 +9,10 @@
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
+  "defaultUsers": [
+    { "firstName": "John", "lastName": "Doe", "title": "Student", "picture": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4", "owner":  "john@foo.com"},
+    { "firstName": "Admin", "lastName": "Cristian", "title": "Student", "picture": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4", "owner":  "admin@foo.com"}
+  ],
 
   "defaultData": [
     { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
