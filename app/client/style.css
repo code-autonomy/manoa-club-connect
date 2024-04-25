@@ -171,3 +171,10 @@ hr.underline {
   padding: 50px;
   border-radius: 10px; /* Add border-radius for rounded corners */
 }
+#signout-page {
+  background-image: url('/images/sign_out_image.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 90vh;
+}
