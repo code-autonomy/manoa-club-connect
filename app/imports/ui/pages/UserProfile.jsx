@@ -1,47 +1,51 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Button } from 'react-bootstrap';
-import { useTracker } from 'meteor/react-meteor-data';
-import { useNavigate } from 'react-router-dom';
-import { Users } from '../../api/Users/User';
-import LoadingSpinner from '../components/LoadingSpinner';
+import PropTypes from 'prop-types';
+import { Container, Card, Col, Row, Image } from 'react-bootstrap';
 
-const UserProfile = () => {
-  const navigate = useNavigate();
-  const goToEditUserPage = (userId) => navigate(`/edituser/${userId}`);
+/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+const UserProfile = ({ user }) => (
+  <Container id="Container-User-Profile" fluid className="h-75">
+    <Row className="h-100">
+      <Col md={10} className="h-100"> {/* Adjust the md value as per your layout requirement */}
+        <Card id="Card-Profile" className="h-100 w-100">
+          <Card.Body>
+            <Row className="justify-content-center">
+              <Col className="justify-content-center text-center">
+                <Image src={user.picture} width={200} />
+              </Col>
+            </Row>
+            <Row className="text-center">
+              <Col>
+                <p>First Name: {user.firstName}</p>
+              </Col>
+            </Row>
+            <Row className="text-center">
+              <Col>
+                <p>Last Name: {user.lastName}</p>
+              </Col>
+            </Row>
+            <Row className="text-center">
+              <Col>
+                <p>Title: {user.title}</p>
+              </Col>
+            </Row>
+          </Card.Body>
+        </Card>
+      </Col>
+    </Row>
+  </Container>
+);
 
-  const { ready, users } = useTracker(() => {
-    const subscription = Meteor.subscribe(Users.userPublicationName);
-    const rdy = subscription.ready();
-    const userProfiles = Users.collection.find({}).fetch();
-    return {
-      users: userProfiles,
-      ready: rdy,
-    };
-  }, []);
-
-  const currentUser = users.length > 0 ? users[0] : null;
-  const currentUserFirstName = currentUser ? currentUser.firstName : '';
-
-  return (ready ? (
-    <Container fluid id="view-user-page" className="min-vh-100">
-      <Row>
-        <Col md={6}>
-          <Col fluid md={{ span: 4, offset: 3 }} className="text-center">
-            <h2>Hi, {currentUserFirstName}</h2>
-          </Col>
-          {users.map((user) => (
-            <UserProfile key={user._id} user={user} />
-          ))}
-          <Col fluid md={{ span: 4, offset: 3 }} className="d-flex justify-content-center">
-            <Button id="edit-profile-button" size="lg" block className="text-center mt-3 custom-review-button" onClick={() => goToEditUserPage(currentUser._id)}>
-              Edit Your Profile Page
-            </Button>
-          </Col>
-        </Col>
-      </Row>
-    </Container>
-  ) : <LoadingSpinner />);
+// Require a document to be passed to this component.
+UserProfile.propTypes = {
+  user: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    title: PropTypes.string,
+    picture: PropTypes.string,
+    email: PropTypes.string,
+    _id: PropTypes.string,
+  }).isRequired,
 };
 
 export default UserProfile;

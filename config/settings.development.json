@@ -5,7 +5,7 @@
   },
 
   "defaultAccounts": [
-    { "email": "superadmin@foo.com", "password": "changeme", "role": "admin" },
+    { "email": "superadmin@foo.com", "password": "changeme", "role": "superadmin" },
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
@@ -21,7 +21,7 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
 
-  "defaultClubs": [
+  "defaultClub": [
     {
       "organization": "8bit (8 Business Information & Technology)",
       "dateApproved": "3/4/24",

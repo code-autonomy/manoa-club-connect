@@ -21,6 +21,8 @@ import SignOutMessage from '../pages/SignOutMessage';
 import ClubCategoriesPage from '../pages/ClubCategoriesPage';
 import AdminControl from '../pages/AdminControl';
 import AddClub from '../pages/AddClub';
+import RemoveClub from '../pages/RemoveClub';
+import ClubListPage from '../pages/ClubListPage';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -38,6 +40,7 @@ const App = () => {
           <Route exact path="/" element={<Landing />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/ClubCategoriesPage" element={<ClubCategoriesPage />} />
           <Route path="/UserProfile" element={<UserProfile />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/signout" element={<SignOutMessage />} />
@@ -45,9 +48,10 @@ const App = () => {
           <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
           <Route path="/add" element={<SuperAdminProtectedRoute ready={ready}><AddClub /></SuperAdminProtectedRoute>} />
           <Route path="/ClubHostPage" element={<AdminProtectedRoute ready={ready}><ClubHostPage /></AdminProtectedRoute>} />
-          <Route path="/ClubCategoriesPage" element={<ProtectedRoute><ClubCategoriesPage /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<SuperAdminProtectedRoute ready={ready}><AdminControl /></SuperAdminProtectedRoute>} />
+          <Route path="/remove" element={<SuperAdminProtectedRoute ready={ready}><RemoveClub /></SuperAdminProtectedRoute>} />
+          <Route path="/ClubListPage" element={<ProtectedRoute><ClubListPage /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

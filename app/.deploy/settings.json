@@ -1,0 +1,382 @@
+{
+  "defaultAccounts": [
+    { "email": "superadmin@foo.com", "password": "changeme", "role": "superadmin" },
+    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
+    { "email": "john@foo.com", "password": "changeme" }
+  ],
+
+  "defaultData": [
+    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
+    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
+    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
+    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultClub": [
+    {
+      "organization": "8bit (8 Business Information & Technology)",
+      "dateApproved": "3/4/24",
+      "expiration": "9/30/24",
+      "type": "Service",
+      "email": "lmig4@hawaii.edu",
+      "purpose": "Software solution organization that provides software services to local business or on-campus university departments. Specific software services include but are not limited to : website re-designs, organization management dashboards, mobile applications, data management systems etc. We will also teach practical in real life technical skills in the fields of software development, design and business."
+    },
+    {
+      "organization": "Accounting Club",
+      "dateApproved": "9/25/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "aagag@hawaii.edu",
+      "purpose": "The purpose of this organization shall be:\nA. To provide members with opportunities for academic, personal, and professional development so they may contribute effectively and ethically to society and their organizations.\nB. To serve the community and develop conscientious members of the community through participation in civic activities.\nC. To build unity within the club while establishing friendships and networks that extends beyond the college career.\nD. To educate members about the opportunity provided by all sectors of the accounting industry.\nE. To aspire continuous improvement in all activities to ensure that members perform\neffectively in today’s business environment."
+    },
+    {
+      "organization": "Advocates for Public Interest Law",
+      "dateApproved": "9/25/23",
+      "expiration": "9/30/24",
+      "type": "Political",
+      "email": "ef6@hawaii.edu",
+      "purpose": "APIL aims to raise the consciousness of Hawai‘i’s law students and the entire legal community regarding public interest law. APIL does so by holding educational events and panels with Hawai'i attorneys working in public interest fields and by awarding several grants each spring to Hawai‘i law students, enabling them to intern with various public interest organizations during their summer recess. The goal of these grants is to provide legal services to underrepresented groups in the community, while providing valuable training and experience to each of our grantees."
+    },
+    {
+      "organization": "Addiction Medicine & Harm Reduction Interest Group",
+      "dateApproved": "11/13/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "jayokoya@hawaii.edu",
+      "purpose": "“The Addiction Medicine & Harm Reduction Interest Group aims to increase student understanding of harm reduction principles and practices in the context of addiction medicine and public health, with a particular focus on Hawai'i-specific challenges and resources."
+    },
+    {
+      "organization": "AECT- Hawaii at Manoa (AECT-HI)",
+      "dateApproved": "10/19/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "cartermd@hawaii.edu",
+      "purpose": "The AECT-HI Chapter is organized to provide a campus-based focal point for individuals interested in using technology in training and education in association with the University of Hawaii at Manoa Department of Learning Design and Technology (LTEC). The purpose of the Chapter is to provide professional development activities, leadership opportunities, and social interaction for its Members. The mission of AECT-HI is to build a network among LTEC students, faculty, and alumni. Further AECT-HI aims to foster interaction and partnerships with AECT Chapters at other universities and the global AECT community."
+    },
+    {
+      "organization": "Aikido at UHM",
+      "dateApproved": "9/25/23",
+      "expiration": "9/30/24",
+      "type": "Sports/Leisure",
+      "email": "halliday@hawaii.edu",
+      "purpose": "We practice Aikido."
+    },
+    {
+      "organization": "Alpha Omega Hawaii",
+      "dateApproved": "9/29/23",
+      "expiration": "9/30/24",
+      "type": "Religious/Spiritual",
+      "email": "mmorrell@hawaii.edu",
+      "purpose": "A.The primary function of Alpha Omega Hawaii will be to provide students with the\nopportunity for spiritual growth by interacting with other students who are\nChristians at UH and\nB. To encourage academic excellence\nC. Alpha Omega Hawaii aims to encourage members to uphold the standards held\nand established by the University policies."
+    },
+    {
+      "organization": "Alpha Sigma Phi",
+      "dateApproved": "10/19/23",
+      "expiration": "9/30/24",
+      "type": "Fraternity/Sorority",
+      "email": "senverso@hawaii.edu",
+      "purpose": "Alpha Sigma Phi strives to becomes the fraternity of choice among undergraduate men coming to the University of Hawaii at Manoa. Alpha Sigma Phi's overall mission is focused on producing academic accomplished, socially acceptable, and physically active leaders consisting of undergraduate men of all backgrounds and beliefs. Our goal every year is to not only improve our organization, but better UHM's Greek Life as a whole through our actions of service and collaboration with philanthropic organizations and other Greek RIOs."
+    },
+    {
+      "organization": "Alpha Gamma Delta Delta Sigma",
+      "dateApproved": "10/26/23",
+      "expiration": "9/30/24",
+      "type": "Fraternity/Sorority",
+      "email": "cbarreca@hawaii.edu",
+      "purpose": "Alpha Gamma Delta is an international women's organization committed to providing opportunities for personal development, service to others and a space for members to forge their own paths—all through a lifelong spirit of sisterhood. Inspired by the vision and values defined by our Founders, Alpha Gamma Delta challenges members to lead lives of significance that positively impact their communities. Together, we continually work to: Inspire the Woman. Impact the World."
+    },
+    {
+      "organization": "Alohathon",
+      "dateApproved": "10/26/23",
+      "expiration": "9/30/24",
+      "type": "Service",
+      "email": "lynchsf@hawaii.edu",
+      "purpose": "Dance marathon to raise money for Kapiolani women’s and children’s hospital"
+    },
+    {
+      "organization": "American Association of University Women at the University of Hawaiʻi at Mānoa",
+      "dateApproved": "9/8/23",
+      "expiration": "9/30/24",
+      "type": "Political",
+      "email": "sulee@hawaii.edu",
+      "purpose": "The mission of our RIO is to promote the values of AAUW on the UHM campus and in the community. We are working towards equity in society by providing the tools necessary for women to gain economic security, to pursue their education, and advocate for women's rights."
+    },
+    {
+      "organization": "American Hotel & Lodging Association [AHLA]",
+      "dateApproved": "9/29/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "vivianht@hawaii.edu",
+      "purpose": "To develop student advocates for America's hospitality and lodging industry through education, valuable experiences and available resources."
+    },
+    {
+      "organization": "American Institute of Aeronautics and Astronautics Student Branch at the University of Hawai'i at Manoa",
+      "dateApproved": "10/19/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "mhm69@hawaii.edu",
+      "purpose": "Establish a community for aerospace-related student projects and programs at the UHM and further the purposes and programs of AIAA."
+    },
+    {
+      "organization": "American Institute of Graphic Arts at the University of Hawai'i at Manoa (AIGA UHM)",
+      "dateApproved": "10/19/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "yanruluo@hawaii.edu",
+      "purpose": "The purpose of this organization is to give aspiring students interested in graphic design the opportunity to participate in design related events, get to know their peers, and connect with the larger design community and professionals."
+    },
+    {
+      "organization": "American Marketing Association at the University of Hawaii at Manoa",
+      "dateApproved": "8/24/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "tj46@hawaii.edu",
+      "purpose": "Our club's purpose is to provide our members with the opportunities to grow socially, philanthropically, and professionally to prepare our members for the work environment after college."
+    },
+    {
+      "organization": "American Medical Association/Hawaii Medical Association Branch at JABSOM",
+      "dateApproved": "9/29/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "dwc432@hawaii.edu",
+      "purpose": "The purpose of the organization shall be to: a) Provide a platform for medical students interested in health-related public policy or medical education standards to interact with peers who share similar interests and goals. b) Provide opportunities for medical students to expand their knowledge of health-related policy or medical education standards by means of workshops, presentations, and online modules. c) Aid medical students in their search for public policy or medical education standards related research or conferences."
+    },
+    {
+      "organization": "American Society of Heating, Refrigerating and Air-Conditioning Engineers",
+      "dateApproved": "2/20/24",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "shibuya4@hawaii.edu",
+      "purpose": "The purpose of this organization is to provide opportunities to people interested in mechanical engineering. These opportunities include learning about systems like HVAC, chillers, etc.; scholarship applications; and networking with current mechanical engineers."
+    },
+    {
+      "organization": "American Society of Civil Engineers",
+      "dateApproved": "8/24/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "kobyk@hawaii.edu",
+      "purpose": "The mission of the University of Hawai'i at Manoa ASCE student chapter is to expand the knowledge of aspiring civil engineers through networking, monthly meetings, socials, fundraisers and community service. In addition, it is our goal to give our members the opportunity to participate, as well as compete, in the PSWS for a once-in-a-lifetime engineering experience they will never forget."
+    },
+    {
+      "organization": "American Institute of Architects Students Hawaii Chapter",
+      "dateApproved": "10/26/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "ajct7@hawaii.edu",
+      "purpose": "01. We promote excellence in architecture education, and training.\n\n02. We foster an appreciation of architecture, design, and related disciplines.\n\n03. We enrich communities in a spirit of collaboration.\n\n04. We organize students and combine their efforts to advance the art and policy of architecture."
+    },
+    {
+      "organization": "American Library Association Student Chapter",
+      "dateApproved": "10/26/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "kjmunro@hawaii.edu",
+      "purpose": "The purposes and aims of the organization are:\n\nA. To facilitate and encourage participation in the American Library Association.\n\n\nB. To acquaint members with the goals, objectives, and resources of the American Library Association.\n\n\nC. To encourage professional contacts within the field of librarianship.\n\n\nD. To provide the members of the Student Chapter with official representation to the American Library Association and other relevant organizations.\n\n\nE. To actively promote leadership skills and involvement in professional activities beyond the classroom.\n\n\nF. To provide a local forum for the exchange of ideas and information about trends, issues, and opportunities in the profession.\n\n\nG. To develop skills and relationships that will enable students to have a creative impact on the profession.\n\n\nH. To increase awareness of national issues in librarianship."
+    },
+    {
+      "organization": "Anakbayan Hawai‘i",
+      "dateApproved": "12/6/23",
+      "expiration": "9/30/23",
+      "type": "Political",
+      "email": "ereyes4@hawaii.edu",
+      "purpose": "A Hawaii-based youth organization promoting national democracy in the Philippines. We stand in solidarity with anti-imperialist struggles in Hawai‘i."
+    },
+    {
+      "organization": "Anthropology Undergraduate Student Association",
+      "dateApproved": "10/26/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "paris6@hawaii.edu",
+      "purpose": "The Anthropology Undergraduate Student Association at the University of Hawaiʻi at Mānoa is an organization of students who are passionate about anthropology and want to take their knowledge and involvement to the next step. \n\nObjectives of AUSA\n• The creation of an accessible means for all students interested in anthropology to gain experience and familiarity with the resources that are available to them through the University of Hawaiʻi at Mānoa, the College of Social Sciences, and the Department of Anthropology.\n\n• A forum for students to discuss current topics & debates relevant to anthropology and related disciplines.\n\n• Provide interested students with guidance, support and practical experience to adequately prepare them for a career and/or graduate/post-baccalaureate studies in anthropology.\n\n• Offer opportunities for students to practice their kuleana within the community and learn invaluable skills through a variety of volunteer and learning opportunities."
+    },
+    {
+      "organization": "Anime Manga Society of Hawai`i @ UH Manoa",
+      "dateApproved": "11/13/23",
+      "expiration": "9/30/24",
+      "type": "Leisure/Recreational",
+      "email": "ams@hawaii.edu",
+      "purpose": "AMS is a leisure club and a gathering place for people to discuss and enjoy anime and anime related things.  We are also hooked up with a few other club that we do combined club related activities."
+    },
+    {
+      "organization": "Animal Science Club at UH Manoa",
+      "dateApproved": "1/17/24",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "garnerla@hawaii.edu",
+      "purpose": "The Animal Science Club at the University of Hawaii at Manoa is committed to students who share an interest and passion for animals and livestock production systems. The club accomplishes its mission by organizing events that emphasize education and hands-on experience. The club also participates in community service events."
+    },
+    {
+      "organization": "Asian-Pacific Law & Policy Journal",
+      "dateApproved": "9/25/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "elyselan@hawaii.edu",
+      "purpose": "The Asian-Pacific Law and Policy Journal (APLPJ) is a web-based, American legal journal covering issues in Asia and the Pacific Rim. Our objectives are to disseminate legal research by law professors, legal practitioners, social scientists, economists, and students; to increase awareness of legal issues impacting the region and to provide a forum to discuss legal topics that fall within the Journal’s geographic scope. In addition to the web format, the journal is available through the legal databases LexisNexis. APLPJ publishes articles, translations, book reviews, essays, case notes, and comments on current topics in comparative and transnational law focused on one or more of the following countries or geographic entities: Australia, Brunei, Burma, Cambodia, China (including Hong Kong Special Administrative Region and Macau Special Administrative Region), East Timor, Fiji, Hawai‘i, Indonesia, Japan, Kiribati, Laos, Malaysia, Marshall Islands, Micronesia, Mongolia, Nauru, New Zealand, North Korea, Palau, Papua New Guinea, Philippines, Samoa, Singapore, Solomon Islands, South Korea, Taiwan, Thailand, Tonga, Tuvalu, Vanuatu, Vietnam."
+    },
+    {
+      "organization": "Associated Students of the John A. Burns School of Medicine",
+      "dateApproved": "8/30/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "ddre@hawaii.edu",
+      "purpose": "The purpose of Associated Students of JABSOM (ASJABSOM) and the JABSOM Classes is to serve as the official body representing the medical students of JABSOM. To that end, purposes include, but are not limited to: (1) advocating on behalf of the medical students of JABSOM; (2) promoting the welfare of JABSOM and its students; (3) fostering student morale; (4) providing a forum for the expression of student interests and concerns to the faculty, administration, and staff; (5) promoting collaboration between the JABSOM Classes; (6) supporting academic and social interaction among the students, faculty, administration, and the greater community; (7) encouraging service in JABSOM and the community; (8) providing services and activities beneficial to ASJABSOM members, JABSOM, and the community; (9) selecting student delegates to JABSOM committees and other bodies with campus-wide representation; and (10) directing and regulating the activities of ASJABSOM and the JABSOM Classes. Notwithstanding any provision of this Constitution, the purposes of ASJABSOM and the JABSOM Classes are limited exclusively to non-profit purposes."
+    },
+    {
+      "organization": "Association for Computing Machinery at the University of Hawaii at Manoa",
+      "dateApproved": "10/19/23",
+      "expiration": "9/30/24",
+      "type": "Service",
+      "email": "kgooding@hawaii.edu",
+      "purpose": "ACM is a global scientific and educational organization dedicated to advancing the art, science, engineering, and application of computing, serving both professional and public interests by fostering the open exchange of information and by promoting the highest professional and ethical standards. The main goals of the organization is to promote professional and technical development, facilitate networking, and enrich the lives of the organization members."
+    },
+    {
+      "organization": "ASD Student Group",
+      "dateApproved": "1/22/24",
+      "expiration": "9/30/24",
+      "type": "Leisure/Recreational",
+      "email": "wirthyap@hawaii.edu",
+      "purpose": "This clubs purpose is to provide a community for students on the autism spectrum. It is meant to be a place for students on the spectrum to meet other autistic students and do fun activities together. We will have weekly meetings getting to know each other, to discuss autism and issues autistic students face, and do cool activities like arts and crafts, a slideshow day (to talk about our interests with each other) and more!"
+    },
+    {
+      "organization": "Atherton YMCA",
+      "dateApproved": "9/25/23",
+      "expiration": "9/30/24",
+      "type": "Service",
+      "email": "malanacn@hawaii.edu",
+      "purpose": "The YMCA is a fellowship dedicated to implementing principles through programs that build a healthy spirit, mind, and body for all. Atherton YMCA focuses on programs and volunteer opportunities that allow individuals to give back to their community and develop skills needed for the workplace."
+    },
+    {
+      "organization": "Aquaholics Scuba Club",
+      "dateApproved": "12/21/23",
+      "expiration": "9/30/24",
+      "type": "Leisure/Recreational",
+      "email": "mcferson@hawaii.edu",
+      "purpose": "Create a community of scuba divers and lovers of the Ocean. Give students more opportunity to dive and help raise awareness of oceanic threats and conservation through volunteer work, education and fun."
+    },
+    {
+      "organization": "Baptist Collegiate Ministries O'ahu",
+      "dateApproved": "3/4/24",
+      "expiration": "9/30/24",
+      "type": "Religious/Spiritual",
+      "email": "devinvp@hawaii.edu",
+      "purpose": "We exist to engage college students with the gospel, develop disciples of Jesus Christ, and mobilize servant leaders for the church in order to reach the world."
+    },
+    {
+      "organization": "Bachelor of Social Work Organizations",
+      "dateApproved": "9/8/23",
+      "expiration": "9/30/24",
+      "type": "Service",
+      "email": "stonumai@hawaii.edu",
+      "purpose": "The BSWO was established to create a body responsive to the needs and desires of its constituents, provide for administrative continuity, and develop a responsible as well as critical awareness of prevalent attitude and actions through participation in co-curricular activities."
+    },
+    {
+      "organization": "Ballroom Dance Club @UH",
+      "dateApproved": "9/14/23",
+      "expiration": "9/30/24",
+      "type": "Sports/Leisure",
+      "email": "rnarayan@hawaii.edu",
+      "purpose": "Promote social and competitive ballroom dance within the UH community"
+    },
+    {
+      "organization": "Black Student Association",
+      "dateApproved": "9/25/23",
+      "expiration": "9/30/24",
+      "type": "Ethnic/Cultural",
+      "email": "breenajt@hawaii.edu",
+      "purpose": "The Black Student Association (BSA) was established in 2016 in response to the lack of representation for Black students, faculty, and staff at the University of Hawaiʻi at Mānoa (UHM). Since its inception, the BSA has successfully advocated for the return of the African American specialist position in Ethnic Studies, hosted the first Black graduation celebration in over twenty years, hosted Black History month events, and more. The goals of the student-led organization are to: increase awareness and understanding of African American issues, history and culture, promote unity among African American students, engage and connect with topics surrounding Blackness in Hawaiʻi, and promote and preserve Black studies at the University of Hawaiʻi at Mānoa"
+    },
+    {
+      "organization": "Be the Match",
+      "dateApproved": "10/19/23",
+      "expiration": "9/30/24",
+      "type": "Service",
+      "email": "sas@hawaii.edu",
+      "purpose": "Be The Match®, operated by the National Marrow Donor Program® (NMDP), is a nonprofit organization dedicated to helping every patient get the life-saving transplant they need. As trusted leaders in advancing treatments for those facing life-threatening blood cancers, we provide ground-breaking research, innovative technologies, patient support, and education that save lives. Through this club on campus, we will be able to spread awareness of our cause and hopefully find someone's match."
+    },
+    {
+      "organization": "Best Buddies Chapter at UHM",
+      "dateApproved": "9/8/23",
+      "expiration": "9/30/24",
+      "type": "Service",
+      "email": "rdazzeo@hawaii.edu",
+      "purpose": "Best Buddies International is a nonprofit 501(c)(3) organization dedicated to establishing a global volunteer movement that creates opportunities for one-to-one friendships, integrated employment, leadership development, and inclusive living for individuals with intellectual and developmental disabilities (IDD). As a Best Buddies chapter, we are committed to providing activities and outings to create inclusive friendships between UHM college students and persons with disabilities."
+    },
+    {
+      "organization": "Beta Alpha Psi - Delta Theta Chapter",
+      "dateApproved": "9/14/23",
+      "expiration": "9/30/24",
+      "type": "Honorary Society",
+      "email": "jmjaf@hawaii.edu",
+      "purpose": "Beta Alpha Psi is the international honor organization for financial information students and professionals. The purpose of this organization shall be to: \n- Instill in its members a desire for self-improvement. \n- Foster high moral and ethical standards in its members. \n- Encourage and give recognition to scholastic and professional excellence. \n- Cultivate a sense of responsibility and services in its members. \n- Promote the collegiate study of accounting. \n- Provide opportunities for association among its members."
+    },
+    {
+      "organization": "Beta Beta Gamma",
+      "dateApproved": "10/19/23",
+      "expiration": "9/30/24",
+      "type": "Fraternity/Sorority",
+      "email": "changv21@hawaii.edu",
+      "purpose": "To bring together a group of strong, caring women to create a sisterhood of leadership, community, and diversity. To give back to our community and raise a group of strong intelligent women"
+    },
+    {
+      "organization": "Botanical Society of America Hawaii Chapter at Univeristy of Hawaii at Manoa",
+      "dateApproved": "10/26/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "nitz@hawaii.edu",
+      "purpose": "The Botanical Society of America (“BSA”) Student Chapter at University of Hawaii at Mānoa (“Chapter”) shall be operated for scientific and educational purposes.  Its mission is to promote botany, the field of basic science dealing with the study and inquiry into the form, function, development, diversity, reproduction, evolution, and uses of plants and their interactions within the biosphere.  To accomplish this mission, the objectives of the Chapter are to: sustain and provide improved formal and informal education about plants; encourage basic plant research; provide expertise, direction, and position statements concerning plants and ecosystems; and foster communication within the professional botanical community, and between botanists and the rest of the local community through meetings, activities, and community outreach."
+    },
+    {
+      "organization": "Business Executive Society of Tomorrow",
+      "dateApproved": "8/30/23",
+      "expiration": "9/30/24",
+      "type": "Academic/Professional",
+      "email": "agcaball@hawaii.edu",
+      "purpose": "The Business Executive Society of Tomorrow is a general business club at the University of Hawaii at Manoa’s Shidler College of Business. Founded by students in 1998, BEST has a proud history of maintaining and perpetuating excellence in its members. Through the years, we have developed a culture of diligence and dedication to personal and professional growth. Through a combination of tours, workshops, networking events, alumni events, community services, and socials, we strive to mold our members into well-rounded individuals. We pride ourselves in producing the business leaders of tomorrow, and we provide our members with ample opportunities to continually advance toward that goal."
+    },
+    {
+      "organization": "Capoeira Senzala Hawaii",
+      "dateApproved": "10/19/23",
+      "expiration": "9/30/24",
+      "type": "Ethnic/Cultural",
+      "email": "andru78@hawaii.edu",
+      "purpose": "To expose students to Brazilian culture through many aspects of capoeira, such as martial art, fitness, music, rhythm, and samba. To build a healthy community around training capoeira and to contribute to this community by bringing guest teachers for workshops and events."
+    },
+    {
+      "organization": "Campus Chinese Christian Ministry",
+      "dateApproved": "11/13/23",
+      "expiration": "9/30/24",
+      "type": "Religious/Spiritual",
+      "email": "zhaos@hawaii.edu",
+      "purpose": "The purpose of the organization is to offer a space for Chinese students and scholars at the University of Hawaii to find support, companionship, and spiritual fulfillment. Our focus is not only on academic and professional excellence but also on understanding the deeper meaning of life through family, kinship, love, and faith."
+    },
+    {
+      "organization": "Chess Club at UH Manoa",
+      "dateApproved": "11/17/23",
+      "expiration": "9/30/24",
+      "type": "Leisure/Recreational",
+      "email": "adpaul@hawaii.edu",
+      "purpose": "Facilitate a community were chess players can come together and play on campus."
+    },
+    {
+      "organization": "Chi Alpha Hawaii",
+      "dateApproved": "9/14/23",
+      "expiration": "9/30/24",
+      "type": "Religious/Spiritual",
+      "email": "kagacir@hawaii.edu",
+      "purpose": "WE DISCIPLE UNIVERSITY STUDENTS TO FULFILL THEIR PURPOSE IN GOD'S GLOBAL PLAN. Our mission is to reconcile students to Christ, equipping them through Spirit-Filled communities of prayer, worship, fellowship, discipleship, and mission to transform the university, the marketplace and the world."
+    },
+    {
+      "organization": "Chi Epsilon",
+      "dateApproved": "9/25/23",
+      "expiration": "9/30/24",
+      "type": "Honorary Society",
+      "email": "blucey@hawaii.edu",
+      "purpose": "Chi Epsilon is the National Civil Engineering Honor Society. We are dedicated to maintaining and promoting the status of civil engineering as an ideal profession here on the UHM campus. To contribute to the improvement of the profession, Chi Epsilon fosters the development and exercise of sound traits of character and technical ability among civil engineers, and its members, by precept and example, toward an ever higher standard of professional service. We provide tutoring in lower-level CEE courses, commit ourselves frequently to community service events, offer career development opportunities for our members, and host social events."
+    }
+  ],
+
+  "monti": {
+    "appId": "eYp3oZg5NFYZXi67Q",
+    "appSecret": "c780b11c-e28f-45f3-9897-a9ab82c27d9f"
+  }
+}

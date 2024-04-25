@@ -1,37 +1,74 @@
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap'; // Import Bootstrap components
-import { NavLink } from 'react-router-dom'; // Import NavLink
+import { Meteor } from 'meteor/meteor';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Container, Row, Col, Carousel } from 'react-bootstrap';
+import { Clubs } from '../../api/club/Club';
+import { ClubCards } from '../components/ClubCards';
+import LoadingSpinner from '../components/LoadingSpinner';
 
-const ClubsCategoriesPage = () => {
-  // Define categories of clubs
-  const categories = [
-    { id: 1, name: 'Sports', description: 'Join sports clubs and teams for various activities.' },
-    { id: 2, name: 'Arts & Crafts', description: 'Express your creativity with arts and crafts clubs.' },
-    { id: 3, name: 'Academic', description: 'Explore academic interests with clubs related to various fields.' },
-    { id: 4, name: 'Social', description: 'Connect with others through social clubs and events.' },
-    // Add more categories as needed
-  ];
+const ClubCategoriesPage = () => {
+  const { clubs, ready } = useTracker(() => {
+    const subscription = Meteor.subscribe('clubs');
+    const rdy = subscription.ready();
+    const items = Clubs.collection.find({}).fetch();
+    return {
+      clubs: items,
+      ready: rdy,
+    };
+  });
 
-  return (
-    <Container>
-      <h2 className="mt-4 mb-4">Club Categories</h2>
-      <Row>
-        {categories.map(category => (
-          <Col key={category.id} md={6} lg={4} className="mb-4">
-            <Card>
-              <Card.Body>
-                <Card.Title>{category.name}</Card.Title>
-                <Card.Text>{category.description}</Card.Text>
-                <NavLink to={`/clubs/${category.id}`} className="btn btn-primary">
-                  Explore {category.name} Clubs
-                </NavLink>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
+  // Function to group clubs by category
+  const groupClubsByCategory = (clubsGroup) => {
+    const groupedClubs = {};
+    clubsGroup.forEach((club) => {
+      const { type } = club;
+      if (!groupedClubs[type]) {
+        groupedClubs[type] = [];
+      }
+      groupedClubs[type].push(club);
+    });
+    return groupedClubs;
+  };
+
+  return ready ? (
+    <Container fluid className="ps-3 mb-5">
+      <Row className="justify-content-center"> {/* Center align the title with the entire page */}
+        <h2 className="text-center">Current Active Clubs</h2>
+        <Col md={10}>
+          {/* Group clubs by category and render a carousel for each category */}
+          {Object.entries(groupClubsByCategory(clubs)).map(([category, clubsInCategory]) => (
+            <div key={category} className="mb-4">
+              <h3 className="mb-3">{category}</h3>
+              <div style={{ overflow: 'hidden' }}> {/* Add overflow hidden to contain carousel */}
+                <Carousel
+                  nextIcon={<span className="carousel-arrow">›</span>}
+                  prevIcon={<span className="carousel-arrow">‹</span>}
+                  nextLabel=""
+                  prevLabel="" // Hide default aria-labels
+                >
+                  {clubsInCategory.map((club, index) => (
+                    // Render multiple cards within each Carousel.Item
+                    index % 3 === 0 && (
+                      <Carousel.Item key={`${category}-${index}`}>
+                        <Row>
+                          {/* eslint-disable-next-line no-shadow */}
+                          {clubsInCategory.slice(index, index + 3).map((club) => (
+                            <Col key={club._id} sm={4}>
+                              <ClubCards clubs={[club]} />
+                            </Col>
+                          ))}
+                        </Row>
+                      </Carousel.Item>
+                    )
+                  ))}
+                </Carousel>
+              </div>
+            </div>
+          ))}
+        </Col>
       </Row>
     </Container>
-  );
+  ) : <LoadingSpinner />;
 };
 
-export default ClubsCategoriesPage;
+export default ClubCategoriesPage;

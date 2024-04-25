@@ -38,13 +38,18 @@ const AdminControl = () => {
               <h2>Current Active Clubs</h2>
             </Col>
             <Col className="ms-auto text-end" style={{ fontSize: '1.5rem' }}>
-              <OverlayTrigger trigger="hover" placement="left" overlay={addClubPopover}>
-                <Link to="/add"><PlusCircle style={{ color: 'black' }} /></Link>
+              <OverlayTrigger trigger={['hover', 'focus']} placement="left" overlay={addClubPopover}>
+                <Link id="add-club-button" to="/add"><PlusCircle style={{ color: 'black' }} /></Link>
               </OverlayTrigger>
             </Col>
           </Row>
           <Row xs={1} md={2} lg={3}>
             {clubs.map((club) => (<Col key={club._id} className="mb-3"><ClubItemAdmin club={club} /></Col>))}
+          </Row>
+          <Row className="pt-3">
+            <Col className="text-center">
+              <Link to="/remove">Go to Remove Club Page</Link>
+            </Col>
           </Row>
         </Col>
         <Col

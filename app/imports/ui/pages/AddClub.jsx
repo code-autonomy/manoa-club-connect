@@ -12,11 +12,12 @@ const formSchema = new SimpleSchema({
   organization: String,
   dateApproved: String,
   expiration: String,
-  clubType: {
+  type: {
     type: String,
-    allowedValues: ['Sports', 'Arts & Crafts', 'Academic', 'Social', 'Service'],
+    allowedValues: ['Academic/Professional', 'Political', 'Sports/Leisure', 'Religious/Spiritual', 'Service', 'Fraternity/Sorority', 'Ethnic/Cultural', 'Honorary Society', 'Leisure/Recreational', 'Other'],
+    defaultValue: 'Other',
   },
-  clubEmail: String,
+  email: String,
   purpose: String,
 });
 
@@ -27,10 +28,10 @@ const AddClub = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { organization, dateApproved, expiration, clubType, clubEmail, purpose } = data;
+    const { organization, dateApproved, expiration, type, email, purpose } = data;
     const owner = Meteor.user().username;
     Clubs.collection.insert(
-      { organization, dateApproved, expiration, clubType, clubEmail, purpose, owner },
+      { organization, dateApproved, expiration, type, email, purpose, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -45,20 +46,20 @@ const AddClub = () => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
-    <Container className="py-3">
+    <Container id="add-club-page" className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Add Club</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="organization" />
-                <TextField name="dateApproved" />
-                <TextField name="expiration" />
-                <SelectField name="clubType" placeholder="Choose Club Type" />
-                <TextField name="clubEmail" />
-                <LongTextField name="purpose" maxLength={50} />
-                <SubmitField value="submit" />
+                <TextField id="add-org" name="organization" />
+                <TextField id="add-date-approved" name="dateApproved" />
+                <TextField id="add-expiration" name="expiration" />
+                <SelectField id="add-type" name="type" placeholder="Choose Club Type" />
+                <TextField id="add-email" name="email" />
+                <LongTextField id="add-purpose" name="purpose" maxLength={50} />
+                <SubmitField id="add-club-submit" value="submit" />
                 <ErrorsField />
               </Card.Body>
             </Card>
