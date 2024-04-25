@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Clubs } from '../../api/club/Club.js';
+import { Users } from '../../api/Users/User';
 
 /* eslint-disable no-console */
 
@@ -14,5 +15,16 @@ if (Clubs.collection.find().count() === 0) {
   if (Meteor.settings.defaultClub) {
     console.log('Creating default Club.');
     Meteor.settings.defaultClub.forEach(club => addClub(club));
+  }
+}
+const addUser = (user) => {
+  console.log(`  Adding: ${user.name} (${user.owner})`);
+  Users.collection.insert(user);
+};
+
+if (Users.collection.find().count() === 0) {
+  if (Meteor.settings.defaultUsers) {
+    console.log('Creating default data.');
+    Meteor.settings.defaultClubs.forEach(user => addUser(user));
   }
 }
