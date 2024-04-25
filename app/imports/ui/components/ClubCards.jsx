@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const ClubCards = ({ clubs }) => (
   <div>
-    {/* eslint-disable-next-line react/prop-types */}
     {clubs.map((club) => (
       <ClubCard key={club._id} club={club} />
     ))}
