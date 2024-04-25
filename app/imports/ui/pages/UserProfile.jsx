@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
-import UserPropTypes from '../components/User'; // Correct import path
-
+import UserPropTypes from '../components/User';
+// Correct import path
 const defaultProfileImage = 'https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_640.png'; // Default profile image URL
 
 const UserProfile = ({ user }) => {
