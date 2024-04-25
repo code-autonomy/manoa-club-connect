@@ -31,15 +31,18 @@ const ClubCategoriesPage = () => {
   };
 
   return ready ? (
-    <Container fluid className="ps-3 mb-5">
-      <Row className="justify-content-center"> {/* Center align the title with the entire page */}
+    <Container fluid className="ps-3 mb-5" style={{ backgroundColor: 'green' }}>
+      {/* Added style to set background color */}
+      <Row className="justify-content-center">
+        {/* Center align the title with the entire page */}
         <h2 className="text-center">Current Active Clubs</h2>
         <Col md={10}>
           {/* Group clubs by category and render a carousel for each category */}
           {Object.entries(groupClubsByCategory(clubs)).map(([category, clubsInCategory]) => (
             <div key={category} className="mb-4">
               <h3 className="mb-3">{category}</h3>
-              <div style={{ overflow: 'hidden' }}> {/* Add overflow hidden to contain carousel */}
+              <div style={{ overflow: 'hidden' }}>
+                {/* Add overflow hidden to contain carousel */}
                 <Carousel
                   nextIcon={<span className="carousel-arrow">›</span>}
                   prevIcon={<span className="carousel-arrow">‹</span>}

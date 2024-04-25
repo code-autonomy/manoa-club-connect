@@ -278,7 +278,7 @@ const ClubListPage = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '20px' }}>
+    <div style={{ textAlign: 'center', marginTop: '20px', backgroundColor: '#f0f0f0' }}>
       <h1>List of all the clubs (A-Z):</h1>
       {renderClubList()}
     </div>

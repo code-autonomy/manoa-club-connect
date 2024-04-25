@@ -23,7 +23,8 @@ const UserProfile = ({ user }) => {
       }
     };
 
-    if (file) {
+    if (file)
+    {
       reader.readAsDataURL(file);
     }
   };
