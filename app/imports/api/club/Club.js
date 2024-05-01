@@ -17,6 +17,10 @@ class ClubsCollection {
         allowedValues: ['Academic/Professional', 'Political', 'Sports/Leisure', 'Religious/Spiritual', 'Service', 'Fraternity/Sorority', 'Ethnic/Cultural', 'Honorary Society', 'Leisure/Recreational', 'Other'],
         defaultValue: 'Other',
       },
+      image: {
+        type: String,
+        optional: true,
+      },
       email: String,
       purpose: String,
     });
