@@ -44,24 +44,28 @@ const ClubHostPage1 = () => {
   return ready ? (
     <div style={frameStyle}>
       <Container fluid style={containerStyle}>
-        <Row className="justify-content-center m-5">
-          {userClub ? (
-            <Col className="text-center">
-              <Image src={defaultClubImage} roundedCircle style={{ width: '450px', objectFit: 'fill' }} alt="clubImg" />
-              <p>Club Name: {userClub.organization}</p>
-              <p>Club Type: {userClub.type}</p>
-              <p>Club Approval Date: {userClub.dateApproved}</p>
-              <p>Club Renewal Date: {userClub.expiration}</p>
-              <p>Email: {userClub.email}</p>
-              <p>Purpose: {userClub.purpose}</p>
-              {/* Display other club information here */}
-            </Col>
-          ) : (
-            <Col xs={7} className="text-center">
-              <h1>This is not the club you are looking for...</h1>
-            </Col>
-          )}
-        </Row>
+        {userClub ? (
+          <Container fluid className="text-center">
+            <Row>
+              <Col className="text-center" style={{ border: '1px solid black' }}>
+                {/* Display other club information here */}
+                <Image src={defaultClubImage} roundedCircle className="m-3" style={{ width: '450px', objectFit: 'fill' }} alt="clubImg" />
+                <p>Club Name: {userClub.organization}</p>
+              </Col>
+              <Col className="text-center" style={{ border: '1px solid black' }}>
+                <p>Purpose: {userClub.purpose}</p>
+                <p>Club Type: {userClub.type}</p>
+                <p>Club Approval Date: {userClub.dateApproved}</p>
+                <p>Club Renewal Date: {userClub.expiration}</p>
+                <p>Email: {userClub.email}</p>
+              </Col>
+            </Row>
+          </Container>
+        ) : (
+          <Col xs={7} className="text-center">
+            <h1>This is not the club you are looking for...</h1>
+          </Col>
+        )}
       </Container>
     </div>
   ) : <LoadingSpinner />;
