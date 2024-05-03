@@ -377,6 +377,14 @@
       "type": "Honorary Society",
       "email": "blucey@hawaii.edu",
       "purpose": "Chi Epsilon is the National Civil Engineering Honor Society. We are dedicated to maintaining and promoting the status of civil engineering as an ideal profession here on the UHM campus. To contribute to the improvement of the profession, Chi Epsilon fosters the development and exercise of sound traits of character and technical ability among civil engineers, and its members, by precept and example, toward an ever higher standard of professional service. We provide tutoring in lower-level CEE courses, commit ourselves frequently to community service events, offer career development opportunities for our members, and host social events."
+    },
+    {
+      "organization": "Test 1",
+      "dateApproved": "4/30/24",
+      "expiration": "9/30/24",
+      "type": "Service",
+      "email": "admin@foo.com",
+      "purpose": "Default club for testing."
     }
   ]
 }
