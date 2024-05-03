@@ -15,7 +15,7 @@ import SignIn from '../pages/SignIn';
 import UserProfile from '../pages/UserProfile';
 import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
-import ClubHostPage1 from '../pages/ClubHostPage1';
+import ClubHostPage from '../pages/ClubHostPage';
 import SignOutMessage from '../pages/SignOutMessage';
 import ClubCategoriesPage from '../pages/ClubCategoriesPage';
 import AdminControl from '../pages/AdminControl';
@@ -46,7 +46,7 @@ const App = () => {
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
           <Route path="/add" element={<SuperAdminProtectedRoute ready={ready}><AddClub /></SuperAdminProtectedRoute>} />
-          <Route path="/ClubHostPage" element={<AdminProtectedRoute ready={ready}><ClubHostPage1 /></AdminProtectedRoute>} />
+          <Route path="/ClubHostPage" element={<AdminProtectedRoute ready={ready}><ClubHostPage /></AdminProtectedRoute>} />
           <Route path="/edit/:_id" element={<AdminProtectedRoute ready={ready}><EditClub /></AdminProtectedRoute>} />
           <Route path="/admin" element={<SuperAdminProtectedRoute ready={ready}><AdminControl /></SuperAdminProtectedRoute>} />
           <Route path="/remove" element={<SuperAdminProtectedRoute ready={ready}><RemoveClub /></SuperAdminProtectedRoute>} />

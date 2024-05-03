@@ -1,112 +1,108 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Image, Button } from 'react-bootstrap';
-import ClubsPropTypes from '../components/Clubs'; // Correct import path
+import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import { Card, Col, Container, Image, Row } from 'react-bootstrap';
+import { useTracker } from 'meteor/react-meteor-data';
+import { PencilSquare } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
+import { Clubs } from '../../api/club/Club';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const frameStyle = {
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center',
   height: '100vh', // Set height to 100% of viewport height
+  backgroundColor: 'darkgreen',
+  opacity: '50',
+};
+
+const mainCol = {
+  justifyContent: 'left',
+  height: '75vh',
+};
+
+const sideInfo = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '75vh',
 };
 
 const containerStyle = {
   border: '2px solid #ccc', // Add border around the container
-  padding: '200px',
   borderRadius: '10px', // Add border-radius for rounded corners
+  margin: '10px',
+  backgroundColor: 'white',
+};
+
+const cardInfo = {
+  width: '100%',
+  height: '100%',
+  boxShadow: '2px 5px 5px black',
+  top: '10%',
+  backgroundColor: 'whitesmoke',
 };
 
 const defaultClubImage = '/images/defaultClubImage.jpg'; // Default profile image URL
 
-const ClubHostPage = ({ club }) => {
-  const [editing, setEditing] = useState(false);
-  const [newClub, setNewClub] = useState({ clubName: club.clubName, clubPicture: club.clubPicture, bio: club.bio });
+const ClubHostPage = () => {
+  const { currentUser } = useTracker(() => ({
+    currentUser: Meteor.user()?.emails[0]?.address, // Get the email address of the current user
+  }), []);
 
-  const handleEdit = () => {
-    setEditing(true);
-  };
+  // const { _id } = useParams();
 
-  const handleSave = () => {
-    // Update the club with the new values
-    setEditing(false);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setNewClub({ ...newClub, [name]: value });
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setNewClub({ ...newClub, clubPicture: reader.result });
+  const { clubs, ready } = useTracker(() => {
+    const subscription = Meteor.subscribe(Clubs.adminPublicationName);
+    const rdy = subscription.ready();
+    const items = Clubs.collection.find({}).fetch();
+    return {
+      clubs: items,
+      ready: rdy,
     };
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
+  });
 
-  return (
+  // Extract emails from clubs
+  // const clubEmails = clubs.map(club => club.email);
+
+  // Check if the email of the currently logged-in user is in clubEmails
+  const userClub = clubs.find(club => club.email === currentUser);
+
+  return ready ? (
     <div style={frameStyle}>
-      <Container style={containerStyle}>
-        <Row className="mt-3">
-          <Col className="text-center">
-            <Image roundedCircle src={newClub.clubPicture || defaultClubImage} style={{ width: '450px', objectFit: 'fill' }} alt="Club" />
-            {editing ? (
-              <div className="mt-3">
-                <input type="text" name="clubName" value={newClub.clubName} onChange={handleChange} style={{ width: '100%' }} />
-              </div>
-            ) : (
-              <h2 className="mt-3">{newClub.clubName}</h2>
-            )}
+      <Container fluid style={containerStyle}>
+        {userClub ? (
+          <Container fluid className="text-center">
+            <Row>
+              <Col className="text-center mt-5" style={mainCol}>
+                {/* Display other club information here */}
+                <Image src={defaultClubImage} roundedCircle className="m-3" style={{ width: '250px', objectFit: 'fill' }} alt="clubImg" />
+                <h3 className="mb-5"><strong>{userClub.organization}</strong></h3>
+                <h5 className="m-4">Club Approval Date: {userClub.dateApproved}</h5>
+                <h5 className="m-4">Club Renewal Date: {userClub.expiration}</h5>
+                <h5 className="m-4">Contact Email: {userClub.email}</h5>
+                <Link id="edit-club" to={`/edit/${userClub._id}`}><PencilSquare style={{ color: 'black' }} /></Link>
+              </Col>
+              <Col className="mt-3" style={sideInfo}>
+                <Card style={cardInfo}>
+                  <Card.Body>
+                    <Card.Text className="m-3"><strong>What Kind of Club Is This?</strong></Card.Text>
+                    <Card.Footer style={{ backgroundColor: 'white' }}>{userClub.type}</Card.Footer>
+                    <Card.Text className="m-3"><strong>Club Purpose</strong></Card.Text>
+                    <Card.Footer style={{ backgroundColor: 'white' }}>{userClub.purpose}</Card.Footer>
+                  </Card.Body>
+                  <Card.Footer />
+                </Card>
+              </Col>
+            </Row>
+          </Container>
+        ) : (
+          <Col xs={7} className="text-center">
+            <h1>This is not the club you are looking for...</h1>
           </Col>
-        </Row>
-        <Row className="mt-4">
-          <Col className="text-center">
-            {editing ? (
-              <textarea name="bio" value={newClub.bio} onChange={handleChange} style={{ width: '100%' }} />
-            ) : (
-              <p>{newClub.bio}</p>
-            )}
-          </Col>
-        </Row>
-        {editing && (
-          <Row className="mt-4">
-            <Col className="text-center">
-              <input type="file" accept="image/*" onChange={handleImageChange} />
-            </Col>
-          </Row>
-        )}
-        {editing && (
-          <Row className="mt-4">
-            <Col className="text-center">
-              <Button variant="primary" onClick={handleSave}>Save</Button>
-            </Col>
-          </Row>
-        )}
-        {!editing && (
-          <Row className="mt-4">
-            <Col className="text-center">
-              <Button variant="secondary" onClick={handleEdit}>Edit</Button>
-            </Col>
-          </Row>
         )}
       </Container>
     </div>
-  );
+  ) : <LoadingSpinner />;
 };
 
-// Apply PropTypes to the component
-ClubHostPage.propTypes = {
-  club: ClubsPropTypes.club,
-};
-
-// Provide defaultProps for the UserProfile component
-ClubHostPage.defaultProps = {
-  club: {
-    clubName: 'Default Club name',
-    clubPicture: defaultClubImage,
-    bio: 'Default Bio',
-  },
-};
 export default ClubHostPage;
