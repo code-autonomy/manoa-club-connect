@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Image, Row } from 'react-bootstrap';
+import { Card, Col, Container, Image, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Clubs } from '../../api/club/Club';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -8,14 +8,36 @@ import LoadingSpinner from '../components/LoadingSpinner';
 const frameStyle = {
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center',
   height: '100vh', // Set height to 100% of viewport height
+  backgroundColor: 'darkgreen',
+  opacity: '50',
+};
+
+const mainCol = {
+  justifyContent: 'left',
+  height: '75vh',
+};
+
+const sideInfo = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '75vh',
 };
 
 const containerStyle = {
   border: '2px solid #ccc', // Add border around the container
-  padding: '200px',
   borderRadius: '10px', // Add border-radius for rounded corners
+  margin: '10px',
+  backgroundColor: 'white',
+};
+
+const cardInfo = {
+  width: '100%',
+  height: '100%',
+  boxShadow: '2px 5px 5px black',
+  top: '10%',
+  backgroundColor: 'whitesmoke',
 };
 
 const defaultClubImage = '/images/defaultClubImage.jpg'; // Default profile image URL
@@ -47,17 +69,23 @@ const ClubHostPage1 = () => {
         {userClub ? (
           <Container fluid className="text-center">
             <Row>
-              <Col className="text-center" style={{ border: '1px solid black' }}>
+              <Col className="text-center mt-5" style={mainCol}>
                 {/* Display other club information here */}
-                <Image src={defaultClubImage} roundedCircle className="m-3" style={{ width: '450px', objectFit: 'fill' }} alt="clubImg" />
-                <p>Club Name: {userClub.organization}</p>
+                <Image src={defaultClubImage} roundedCircle className="m-3" style={{ width: '250px', objectFit: 'fill' }} alt="clubImg" />
+                <h3 className="mb-5"><strong>{userClub.organization}</strong></h3>
+                <h5 className="m-4">Club Approval Date: {userClub.dateApproved}</h5>
+                <h5 className="m-4">Club Renewal Date: {userClub.expiration}</h5>
+                <h5 className="m-4">Contact Email: {userClub.email}</h5>
               </Col>
-              <Col className="text-center" style={{ border: '1px solid black' }}>
-                <p>Purpose: {userClub.purpose}</p>
-                <p>Club Type: {userClub.type}</p>
-                <p>Club Approval Date: {userClub.dateApproved}</p>
-                <p>Club Renewal Date: {userClub.expiration}</p>
-                <p>Email: {userClub.email}</p>
+              <Col className="mt-3" style={sideInfo}>
+                <Card style={cardInfo}>
+                  <Card.Body>
+                    <Card.Text className="m-3"><strong>What Kind of Club Is This?</strong></Card.Text>
+                    <Card.Footer style={{ backgroundColor: 'white' }}>{userClub.type}</Card.Footer>
+                    <Card.Text className="m-3"><strong>Club Purpose</strong></Card.Text>
+                    <Card.Footer style={{ backgroundColor: 'white' }}>{userClub.purpose}</Card.Footer>
+                  </Card.Body>
+                </Card>
               </Col>
             </Row>
           </Container>
