@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Card, Col, Container, Image, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { PencilSquare } from 'react-bootstrap-icons';
 import { Clubs } from '../../api/club/Club';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -85,6 +86,7 @@ const ClubHostPage1 = () => {
                     <Card.Text className="m-3"><strong>Club Purpose</strong></Card.Text>
                     <Card.Footer style={{ backgroundColor: 'white' }}>{userClub.purpose}</Card.Footer>
                   </Card.Body>
+                  <Card.Footer className="text-end"><PencilSquare /></Card.Footer>
                 </Card>
               </Col>
             </Row>
