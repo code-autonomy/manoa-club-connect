@@ -11,6 +11,55 @@ import LoadingSpinner from '../components/LoadingSpinner';
 
 const bridge = new SimpleSchema2Bridge(Clubs.schema);
 
+const frameStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  height: '100vh', // Set height to 100% of viewport height
+  backgroundColor: 'darkgreen',
+  opacity: '50',
+};
+
+const mainCol = {
+  display: 'flex',
+  justifyContent: 'center',
+  height: '75vh',
+};
+
+const sideInfo = {
+  display: 'flex',
+  justifyContent: 'center',
+  height: '75vh',
+};
+
+const containerStyle = {
+  border: '2px solid #ccc', // Add border around the container
+  borderRadius: '10px', // Add border-radius for rounded corners
+  margin: '10px',
+  backgroundColor: 'white',
+};
+
+const cardMain = {
+  width: '100%',
+  height: '80%',
+  boxShadow: '2px 5px 5px black',
+  top: '10%',
+  justifyContent: 'center',
+};
+
+const cardInfo = {
+  width: '100%',
+  height: '80%',
+  boxShadow: '2px 5px 5px black',
+  top: '10%',
+  backgroundColor: 'whitesmoke',
+};
+
+const submitFieldStyle = {
+  position: 'absolute',
+  left: '50%', // Place it in the center horizontally
+  backgroundColor: 'darkgreen',
+};
+
 /* Renders the EditClub page for editing a single document. */
 const EditClub = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
@@ -32,31 +81,43 @@ const EditClub = () => {
   // console.log('EditClub', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { organization, type, purpose } = data;
-    Clubs.collection.update(_id, { $set: { organization, type, purpose } }, (error) => (error ?
+    const { organization, dateApproved, expiration, type, email, purpose } = data;
+    Clubs.collection.update(_id, { $set: { organization, dateApproved, expiration, type, email, purpose } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Club updated successfully', 'success')));
   };
 
   return ready ? (
-    <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center"><h2>Edit Club Information</h2></Col>
+    <div style={frameStyle}>
+      <Container fluid style={containerStyle}>
+        <Container fluid className="text-center">
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
-            <Card>
-              <Card.Body>
-                <TextField name="organization" />
-                <SelectField name="type" />
-                <LongTextField name="purpose" />
-                <SubmitField value="Submit" />
-                <ErrorsField />
-              </Card.Body>
-            </Card>
+            <Row className="">
+              <Col style={mainCol}>
+                <Card style={cardMain}>
+                  <TextField name="organization" />
+                  <TextField name="dateApproved" />
+                  <TextField name="expiration" />
+                  <TextField name="email" />
+                </Card>
+              </Col>
+              <Col style={sideInfo}>
+                <Card style={cardInfo}>
+                  <Card.Body>
+                    <SelectField name="type" />
+                    <LongTextField name="purpose" />
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+            <div className={submitFieldStyle}>
+              <SubmitField />
+              <ErrorsField />
+            </div>
           </AutoForm>
-        </Col>
-      </Row>
-    </Container>
+        </Container>
+      </Container>
+    </div>
   ) : <LoadingSpinner />;
 };
 
