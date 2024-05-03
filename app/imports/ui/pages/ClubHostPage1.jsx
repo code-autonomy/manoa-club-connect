@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Card, Col, Container, Image, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { PencilSquare } from 'react-bootstrap-icons';
-import swal from 'sweetalert';
-import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Clubs } from '../../api/club/Club';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -50,7 +49,7 @@ const ClubHostPage1 = () => {
     currentUser: Meteor.user()?.emails[0]?.address, // Get the email address of the current user
   }), []);
 
-  const { _id } = useParams();
+  // const { _id } = useParams();
 
   const { clubs, ready } = useTracker(() => {
     const subscription = Meteor.subscribe(Clubs.adminPublicationName);
@@ -61,13 +60,6 @@ const ClubHostPage1 = () => {
       ready: rdy,
     };
   });
-
-  const submit = (data) => {
-    const { organization, dateApproved, expiration, type, image, email, purpose } = data;
-    Clubs.collection.update(_id, { $set: { organization, dateApproved, expiration, type, image, email, purpose } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Club updated successfully', 'success')));
-  };
 
   // Extract emails from clubs
   // const clubEmails = clubs.map(club => club.email);
@@ -88,6 +80,7 @@ const ClubHostPage1 = () => {
                 <h5 className="m-4">Club Approval Date: {userClub.dateApproved}</h5>
                 <h5 className="m-4">Club Renewal Date: {userClub.expiration}</h5>
                 <h5 className="m-4">Contact Email: {userClub.email}</h5>
+                <Link id="edit-club" to={`/edit/${userClub._id}`}><PencilSquare style={{ color: 'black' }} /></Link>
               </Col>
               <Col className="mt-3" style={sideInfo}>
                 <Card style={cardInfo}>
@@ -97,7 +90,7 @@ const ClubHostPage1 = () => {
                     <Card.Text className="m-3"><strong>Club Purpose</strong></Card.Text>
                     <Card.Footer style={{ backgroundColor: 'white' }}>{userClub.purpose}</Card.Footer>
                   </Card.Body>
-                  <Card.Footer className="text-end"><PencilSquare /></Card.Footer>
+                  <Card.Footer />
                 </Card>
               </Col>
             </Row>
