@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Col, Container, Image, Row } from 'react-bootstrap';
+import { Card, Col, Container, Image, Row, Modal, Form, Button } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { PencilSquare } from 'react-bootstrap-icons';
 import swal from 'sweetalert';
 import { useParams } from 'react-router';
+import { AutoForm } from 'uniforms-bootstrap5';
+import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Clubs } from '../../api/club/Club';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -45,6 +47,8 @@ const cardInfo = {
 
 const defaultClubImage = '/images/defaultClubImage.jpg'; // Default profile image URL
 
+const bridge = new SimpleSchema2Bridge(Clubs.schema);
+
 const ClubHostPage1 = () => {
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user()?.emails[0]?.address, // Get the email address of the current user
@@ -62,18 +66,46 @@ const ClubHostPage1 = () => {
     };
   });
 
+  const [showEditModal, setShowEditModal] = useState(false); // State to control the edit modal visibility
+  const [editedClub, setEditedClub] = useState(null); // State to hold the edited club data
+
+  const userClub = clubs.find(club => club.email === currentUser);
+
+  const handleEdit = () => {
+    setEditedClub(userClub); // Initialize editedClub state with current club data
+    setShowEditModal(true); // Show the edit modal
+  };
+
+  const handleCloseEditModal = () => {
+    setShowEditModal(false); // Close the edit modal
+  };
+
+  const handleInputChange = (field, value) => {
+    // Update edited club data
+    setEditedClub(prevState => ({
+      ...prevState,
+      [field]: value,
+    }));
+  };
+
+  const handleSaveChanges = () => {
+    // Save changes to database
+    Clubs.collection.update(_id, { $set: editedClub }, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        swal('Success', 'Club updated successfully', 'success');
+        setShowEditModal(false); // Close the edit modal
+      }
+    });
+  };
+
   const submit = (data) => {
     const { organization, dateApproved, expiration, type, image, email, purpose } = data;
     Clubs.collection.update(_id, { $set: { organization, dateApproved, expiration, type, image, email, purpose } }, (error) => (error ?
       swal('Error', error.message, 'error') :
-      swal('Success', 'Club updated successfully', 'success')));
+      swal('Success', 'Club updated successfully', 'success')), setShowEditModal(false));
   };
-
-  // Extract emails from clubs
-  // const clubEmails = clubs.map(club => club.email);
-
-  // Check if the email of the currently logged-in user is in clubEmails
-  const userClub = clubs.find(club => club.email === currentUser);
 
   return ready ? (
     <div style={frameStyle}>
@@ -97,7 +129,7 @@ const ClubHostPage1 = () => {
                     <Card.Text className="m-3"><strong>Club Purpose</strong></Card.Text>
                     <Card.Footer style={{ backgroundColor: 'white' }}>{userClub.purpose}</Card.Footer>
                   </Card.Body>
-                  <Card.Footer className="text-end"><PencilSquare /></Card.Footer>
+                  <Card.Footer className="text-end"><PencilSquare onClick={handleEdit} /></Card.Footer>
                 </Card>
               </Col>
             </Row>
@@ -108,6 +140,34 @@ const ClubHostPage1 = () => {
           </Col>
         )}
       </Container>
+
+      {/* Edit Modal */}
+      <Modal show={showEditModal} onHide={handleCloseEditModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Club Information</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <AutoForm schema={bridge} onSubmit={data => submit(data)} model={clubs}>
+            <Form.Group controlId="formOrganization">
+              <Form.Label>Organization</Form.Label>
+              <Form.Control type="text" defaultValue={editedClub?.organization} onChange={e => handleInputChange('organization', e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formPurpose">
+              <Form.Label>Club Purpose</Form.Label>
+              <Form.Control type="text" defaultValue={editedClub?.purpose} onChange={e => handleInputChange('purpose', e.target.value)} />
+            </Form.Group>
+            {/* Add other form fields for club information */}
+          </AutoForm>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseEditModal}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleSaveChanges}>
+            Submit
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   ) : <LoadingSpinner />;
 };
