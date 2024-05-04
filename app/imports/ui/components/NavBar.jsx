@@ -42,6 +42,9 @@ const NavBar = () => {
               {Roles.userIsInRole(Meteor.userId(), 'admin') && (
                 <Nav.Link id="club-profile-nav" as={NavLink} to="/ClubHostPage" style={linkStyle} className="me-2">Club Host Page</Nav.Link>
               )}
+              {Roles.userIsInRole(Meteor.userId(), 'admin') && (
+                <Nav.Link id="club-admin-nav" as={NavLink} to="/AdminHomePage" style={linkStyle} className="me-2">Admin Home Page</Nav.Link>
+              )}
               {Roles.userIsInRole(Meteor.userId(), 'superadmin') && (
                 <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" style={linkStyle}>Admin</Nav.Link>
               )}

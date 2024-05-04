@@ -23,6 +23,7 @@ import AdminControl from '../pages/AdminControl';
 import AddClub from '../pages/AddClub';
 import RemoveClub from '../pages/RemoveClub';
 import ClubListPage from '../pages/ClubListPage';
+import AdminHomePage from '../pages/AdminHomePage';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
           <Route path="/add" element={<SuperAdminProtectedRoute ready={ready}><AddClub /></SuperAdminProtectedRoute>} />
           <Route path="/ClubHostPage" element={<AdminProtectedRoute ready={ready}><ClubHostPage /></AdminProtectedRoute>} />
+          <Route path="/AdminHomePage" element={<AdminProtectedRoute ready={ready}><AdminHomePage /></AdminProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<SuperAdminProtectedRoute ready={ready}><AdminControl /></SuperAdminProtectedRoute>} />
           <Route path="/remove" element={<SuperAdminProtectedRoute ready={ready}><RemoveClub /></SuperAdminProtectedRoute>} />
