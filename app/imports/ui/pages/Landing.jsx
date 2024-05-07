@@ -5,6 +5,15 @@ import { PersonArmsUp } from 'react-bootstrap-icons';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 
+const logos = {
+  width: '50px',
+  height: '50px',
+  objectFit: 'cover',
+  border: '1px solid black',
+  borderRadius: '50%',
+  backgroundColor: 'white',
+};
+
 /* A simple static component to render a carousel for the landing page. */
 const Landing = () => {
   const { currentUser } = useTracker(() => ({
@@ -172,6 +181,59 @@ const Landing = () => {
           </Container>
         </CarouselItem>
       </Carousel>
+      <footer className="mt-5 py-3 bg-light text-white">
+        <Container>
+          <Row>
+            <Col className="text-start">
+              <h5>About Us</h5>
+              <hr />
+              <h6>A small team of 5 developers based out of the University of Hawai&apos;i working to help students and faculty find others who share their passions.</h6>
+              <h6>Our organization, Code Autonomy, is a non-profit organization who just want to give back to the UH community.</h6>
+            </Col>
+            <Col>
+              <h5>Location</h5>
+              <hr />
+              <h6>University of Hawai&apos;i at Manoa</h6>
+              <h6>2500 Campus Rd.</h6>
+              <h6>Honolulu, HI 96822</h6>
+            </Col>
+            <Col>
+              <h5>We Value Your Feedback!</h5>
+              <hr />
+              <h6>Contact One of Us Below:</h6>
+              <h7>jhasun@hawaii.edu</h7>
+              <br />
+              <h7>luisy@hawaii.edu</h7>
+              <br />
+              <h7>cmilanes@hawaii.edu</h7>
+              <br />
+              <h7>eto8@hawaii.edu</h7>
+              <br />
+              <h7>byrongs@hawaii.edu</h7>
+              <br />
+            </Col>
+          </Row>
+          <Row className="mt-3">
+            <Col />
+            <Col className="text-center">
+              <Link to="https://www.hawaii.edu/campuses/hilo/" target="_blank" aria-labelledby="hilo">
+                <Image src="/images/hilo-logo.png" style={logos} className="m-2" alt="hilo-logo" />
+              </Link>
+            </Col>
+            <Col className="text-center">
+              <Link to="https://www.hawaii.edu/campuses/manoa/" target="_blank" aria-labelledby="manoa">
+                <Image src="/images/manoa-logo.png" style={logos} className="m-2" alt="manoa-logo" />
+              </Link>
+            </Col>
+            <Col className="text-center">
+              <Link to="https://www.hawaii.edu/campuses/westoahu/" target="_blank" aria-labelledby="west">
+                <Image src="/images/wo-logo.png" style={logos} className="m-2" alt="wo-logo" />
+              </Link>
+            </Col>
+            <Col />
+          </Row>
+        </Container>
+      </footer>
     </Container>
   );
 };

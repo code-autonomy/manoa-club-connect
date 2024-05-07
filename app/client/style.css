@@ -88,7 +88,7 @@ hr.underline {
 
 .signin-bg {
   background: ghostwhite;
-  position: absolute;
+  position: relative;
   height: 90vh;
   width: 100%;
   padding: 0;
@@ -170,4 +170,11 @@ hr.underline {
   border: 2px solid #ccc; /* Add border around the container */
   padding: 50px;
   border-radius: 10px; /* Add border-radius for rounded corners */
+}
+#signout-page {
+  background-image: url('/images/sign_out_image.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 90vh;
 }
