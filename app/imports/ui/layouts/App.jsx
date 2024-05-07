@@ -11,7 +11,8 @@ import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
-import UserProfile from '../pages/UserProfile';
+import UserProfilePage from '../pages/UserProfilePage';
+import EditUserPage from '../pages/EditUserProfile';
 import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ClubHostPage from '../pages/ClubHostPage';
@@ -40,7 +41,7 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/ClubCategoriesPage" element={<ClubCategoriesPage />} />
-          <Route path="/UserProfile" element={<UserProfile />} />
+          <Route path="/UserProfile" element={<UserProfilePage />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/signout" element={<SignOutMessage />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
@@ -50,6 +51,7 @@ const App = () => {
           <Route path="/edit/:_id" element={<AdminProtectedRoute ready={ready}><EditClub /></AdminProtectedRoute>} />
           <Route path="/admin" element={<SuperAdminProtectedRoute ready={ready}><AdminControl /></SuperAdminProtectedRoute>} />
           <Route path="/remove" element={<SuperAdminProtectedRoute ready={ready}><RemoveClub /></SuperAdminProtectedRoute>} />
+          <Route path="/edituser/:_id" element={<ProtectedRoute><EditUserPage /></ProtectedRoute>} />
           <Route path="/ClubListPage" element={<ProtectedRoute><ClubListPage /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />

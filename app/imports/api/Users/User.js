@@ -13,13 +13,18 @@ class UsersCollection {
       firstName: { type: String, optional: true },
       lastName: { type: String, optional: true },
       picture: { type: String, optional: true },
-      owner: { type: String },
+      interests: {
+        type: String,
+        allowedValues: ['Academic/Professional', 'Political', 'Sports/Leisure', 'Religious/Spiritual', 'Service', 'Fraternity/Sorority', 'Ethnic/Cultural', 'Honorary Society', 'Leisure/Recreational', 'Other'],
+        defaultValue: 'Other',
+        optional: true },
     });
     // Ensure collection documents obey schema.
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
     this.adminPublicationName = `${this.name}.publication.admin`;
+    this.superAdminPublicationName = `${this.name}.publication.superadmin`;
   }
 }
 
