@@ -14,10 +14,14 @@ class UsersCollection {
       lastName: { type: String, optional: true },
       picture: { type: String, optional: true },
       interests: {
+        type: Array,
+        optional: true,
+        defaultValue: [],
+      },
+      'interests.$': {
         type: String,
         allowedValues: ['Academic/Professional', 'Political', 'Sports/Leisure', 'Religious/Spiritual', 'Service', 'Fraternity/Sorority', 'Ethnic/Cultural', 'Honorary Society', 'Leisure/Recreational', 'Other'],
-        defaultValue: 'Other',
-        optional: true },
+      },
     });
     // Ensure collection documents obey schema.
     this.collection.attachSchema(this.schema);

@@ -25,7 +25,11 @@ const UserProfile = ({ user }) => (
             </Row>
             <Row className="text-center">
               <Col>
-                <p>Title: {user.title}</p>
+                {user.interests && user.interests.length > 0 ? (
+                  <p>Interests: {user.interests.join(', ')}</p>
+                ) : (
+                  <p>No interests specified</p>
+                )}
               </Col>
             </Row>
           </Card.Body>
@@ -43,6 +47,7 @@ UserProfile.propTypes = {
     picture: PropTypes.string,
     email: PropTypes.string,
     _id: PropTypes.string,
+    interests: PropTypes.arrayOf(PropTypes.string), // Added interests PropTypes
   }).isRequired,
 };
 
