@@ -6,11 +6,14 @@
 
   "defaultAccounts": [
     { "email": "superadmin@foo.com", "password": "changeme", "role": "superadmin" },
+    { "email": "testadmin@foo.com", "password":  "changeme", "role":  "admin" },
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "uhcompe@foo.com", "password":  "changeme", "role":  "user "}
+
   ],
   "defaultUsers": [
-    { "firstName": "Cristian", "lastName": "Doey", "title": "Student", "picture": "https://github.com/code-autonomy/manoa-club-connect/blob/main/app/public/images/testcristian.png","email": "john@foo.com"}],
+    { "firstName": "John", "lastName": "Doe", "bio": "I'm John da Doe", "picture": "https://github.com/code-autonomy/manoa-club-connect/blob/main/app/public/images/defaultprofile.webp","email": "john@foo.com"}],
 
   "defaultClub": [
     {

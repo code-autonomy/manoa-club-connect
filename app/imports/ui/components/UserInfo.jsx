@@ -26,7 +26,7 @@ const UserInfo = ({ user }) => (
             </Row>
             <Row className="text-center">
               <Col>
-                <p>Title: {user.title}</p>
+                <p>Bio: {user.bio}</p>
               </Col>
             </Row>
           </Card.Body>
@@ -41,7 +41,7 @@ UserInfo.propTypes = {
   user: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
-    title: PropTypes.string,
+    bio: PropTypes.string,
     picture: PropTypes.string,
     email: PropTypes.string,
     _id: PropTypes.string,

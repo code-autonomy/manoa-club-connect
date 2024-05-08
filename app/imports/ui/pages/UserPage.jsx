@@ -10,10 +10,6 @@ import LoadingSpinner from '../components/LoadingSpinner';
 const UserPage = () => {
   const navigate = useNavigate();
   const goToEditUserPage = (userId) => navigate(`/edituser/${userId}`);
-  const goToLeaveReview = () => navigate('/restaurants-list');
-
-  const goAddRestaurant = () => navigate('/add-restaurant');
-
   const { ready, users } = useTracker(() => {
     const subscription = Meteor.subscribe(Users.userPublicationName);
     const rdy = subscription.ready();
@@ -46,18 +42,8 @@ const UserPage = () => {
           </Col>
         </Col>
         <Col md={6}>
-          <Col fluid className="text-center py-5">
-            <h2>Want To Add A New Restaurant?</h2>
-            <Button size="lg" block className="text-center mt-3 custom-review-button" onClick={goAddRestaurant}>
-              Add A New Restaurant
-            </Button>
-          </Col>
-          )
           <Col className="text-center py-4">
             <h2>Clubs</h2>
-            <Button size="lg" block className="text-center mt-3 custom-review-button" onClick={goToLeaveReview}>
-              Club 1
-            </Button>
           </Col>
         </Col>
       </Row>
