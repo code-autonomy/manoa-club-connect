@@ -5,6 +5,11 @@
     { "email": "john@foo.com", "password": "changeme" }
   ],
 
+  "defaultUsers": [
+    { "firstName": "John", "lastName": "Doe", "title": "Student", "picture": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4", "email":  "john@foo.com", "interests": ["Academic/Professional", "Sports/Leisure"] },
+    { "firstName": "Admin", "lastName": "Cristian", "title": "Student", "picture": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4", "email":  "admin@foo.com"}
+  ],
+
   "defaultClub": [
     {
       "organization": "8bit (8 Business Information & Technology)",
