@@ -33,7 +33,7 @@ const NavBar = () => {
               {/* Existing navigation links */}
               {currentUser && (
                 <>
-                  <Nav.Link id="user-profile-nav" as={NavLink} to="/UserProfile" key="UserProfile" style={linkStyle} className="me-2">User Profile</Nav.Link>
+                  <Nav.Link id="user-profile-nav" as={NavLink} to="/UserPage" key="UserProfile" style={linkStyle} className="me-2">User Profile</Nav.Link>
                   <Nav.Link id="clubs-nav" as={NavLink} to="/ClubCategoriesPage" style={linkStyle} className="me-2">Explore Clubs</Nav.Link>
                   {/* Add the "View List" link */}
                   <Nav.Link id="club-list" as={NavLink} to="/ClubListPage" style={linkStyle} className="me-2">View List</Nav.Link>
