@@ -60,7 +60,7 @@ const Landing = () => {
                 <Col className="pt-4 gradient-up-blue" style={{ borderLeft: 'black solid 1px', height: '17rem' }}>
                   <Link
                     id="user-profile-nav"
-                    to="/UserProfile"
+                    to="/UserPage"
                     role="button"
                     className="signin-text btn btn-outline-dark btn-lg"
                     key="UserProfile"
