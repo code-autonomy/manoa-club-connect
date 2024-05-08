@@ -42,7 +42,7 @@ const UserPage = () => {
           ))}
           <Col fluid md={{ span: 4, offset: 3 }} className="d-flex justify-content-center">
             <Button id="edit-profile-button" size="lg" block className="text-center mt-3 custom-review-button" onClick={() => goToEditUserPage(currentUser._id)}>
-              Edit Your Profile Page
+              Edit Your Profile
             </Button>
           </Col>
         </Col>
@@ -56,9 +56,9 @@ const UserPage = () => {
             </Col>
           )}
           <Col className="text-center py-4">
-            <h2>Want To Leave A Review?</h2>
+            <h2>Clubs</h2>
             <Button size="lg" block className="text-center mt-3 custom-review-button" onClick={goToLeaveReview}>
-              Write A Review
+              Club 1
             </Button>
           </Col>
         </Col>
