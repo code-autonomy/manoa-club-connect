@@ -68,7 +68,7 @@ const ClubHostPage = () => {
   const userClub = clubs.find(club => club.email === currentUser);
 
   return ready ? (
-    <div style={frameStyle}>
+    <div id="club-host-page" style={frameStyle}>
       <Container fluid style={containerStyle}>
         {userClub ? (
           <Container fluid className="text-center">
@@ -80,7 +80,7 @@ const ClubHostPage = () => {
                 <h5 className="m-4">Club Approval Date: {userClub.dateApproved}</h5>
                 <h5 className="m-4">Club Renewal Date: {userClub.expiration}</h5>
                 <h5 className="m-4">Contact Email: {userClub.email}</h5>
-                <Link id="edit-club" to={`/edit/${userClub._id}`}><PencilSquare style={{ color: 'black' }} /></Link>
+                <Link to={`/edit/${userClub._id}`}><PencilSquare id="edit-club" style={{ color: 'black' }} /></Link>
               </Col>
               <Col className="mt-3" style={sideInfo}>
                 <Card style={cardInfo}>

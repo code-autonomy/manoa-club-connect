@@ -69,6 +69,14 @@ class NavBar {
     await testController.click('#clubs-nav');
   }
 
+  async gotoClubList(testController) {
+    await testController.click('#club-list');
+  }
+
+  async gotoClubAdminHome(testController) {
+    await testController.click('#club-admin-nav');
+  }
+
   async gotoLandingPage(testController) {
     await testController.click('#landing-icon');
   }

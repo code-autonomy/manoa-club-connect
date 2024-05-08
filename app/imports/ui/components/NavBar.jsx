@@ -36,11 +36,11 @@ const NavBar = () => {
                   <Nav.Link id="user-profile-nav" as={NavLink} to="/UserProfile" key="UserProfile" style={linkStyle} className="me-2">User Profile</Nav.Link>
                   <Nav.Link id="clubs-nav" as={NavLink} to="/ClubCategoriesPage" style={linkStyle} className="me-2">Explore Clubs</Nav.Link>
                   {/* Add the "View List" link */}
-                  <Nav.Link as={NavLink} to="/ClubListPage" style={linkStyle} className="me-2">View List</Nav.Link>
+                  <Nav.Link id="club-list" as={NavLink} to="/ClubListPage" style={linkStyle} className="me-2">View List</Nav.Link>
                 </>
               )}
               {Roles.userIsInRole(Meteor.userId(), 'admin') && (
-                <Nav.Link id="club-profile-nav" as={NavLink} to="/ClubHostPage" style={linkStyle} className="me-2">Club Host Page</Nav.Link>
+                <Nav.Link id="club-profile-nav" as={NavLink} to="/ClubHostPage" style={linkStyle} className="me-2">Edit Club Page</Nav.Link>
               )}
               {Roles.userIsInRole(Meteor.userId(), 'admin') && (
                 <Nav.Link id="club-admin-nav" as={NavLink} to="/AdminHomePage" style={linkStyle} className="me-2">Admin Home Page</Nav.Link>

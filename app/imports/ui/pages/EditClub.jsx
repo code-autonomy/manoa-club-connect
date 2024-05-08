@@ -88,30 +88,30 @@ const EditClub = () => {
   };
 
   return ready ? (
-    <div style={frameStyle}>
+    <div id="edit-club-page" style={frameStyle}>
       <Container fluid style={containerStyle}>
         <Container fluid className="text-center">
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Row className="">
               <Col style={mainCol}>
                 <Card style={cardMain}>
-                  <TextField name="organization" />
-                  <TextField name="dateApproved" />
-                  <TextField name="expiration" />
-                  <TextField name="email" />
+                  <TextField id="edit-org" name="organization" />
+                  <TextField id="edit-approval" name="dateApproved" />
+                  <TextField id="edit-expiration" name="expiration" />
+                  <TextField id="edit-email" name="email" />
                 </Card>
               </Col>
               <Col style={sideInfo}>
                 <Card style={cardInfo}>
                   <Card.Body>
-                    <SelectField name="type" />
-                    <LongTextField name="purpose" />
+                    <SelectField id="edit-type" name="type" />
+                    <LongTextField id="edit-purpose" name="purpose" />
                   </Card.Body>
                 </Card>
               </Col>
             </Row>
             <div className={submitFieldStyle}>
-              <SubmitField />
+              <SubmitField id="submit-edit" value="submit" />
               <ErrorsField />
             </div>
           </AutoForm>
