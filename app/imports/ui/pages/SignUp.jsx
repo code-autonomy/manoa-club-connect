@@ -61,10 +61,10 @@ const SignUp = ({ location }) => {
   };
 
   /* Display the signup form. Redirect to add page after successful registration and login. */
-  const { from } = location?.state || { from: { pathname: '/add' } };
+  const { home } = location?.state || { home: { pathname: '/home' } };
   // if correct authentication, redirect to from: page instead of signup screen
   if (redirectToReferer) {
-    return <Navigate to={from} />;
+    return <Navigate to={home} />;
   }
   return (
     <Container fluid id="signup-page" className="py-3 conic-bg">
