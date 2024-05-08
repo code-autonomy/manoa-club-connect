@@ -22,6 +22,14 @@ class UsersCollection {
         type: String,
         allowedValues: ['Academic/Professional', 'Political', 'Sports/Leisure', 'Religious/Spiritual', 'Service', 'Fraternity/Sorority', 'Ethnic/Cultural', 'Honorary Society', 'Leisure/Recreational', 'Other'],
       },
+      clubNames: {
+        type: Array,
+        optional: true,
+        defaultValue: [],
+      },
+      'clubNames.$': {
+        type: String,
+      },
     });
     // Ensure collection documents obey schema.
     this.collection.attachSchema(this.schema);

@@ -42,7 +42,7 @@ const EditUserPage = () => {
                 <TextField name="firstName" placeholder="First Name" />
                 <TextField name="lastName" placeholder="Last Name" />
                 <TextField name="picture" placeholder="Picture URL" />
-                <SelectField name="interests" placeholder="Interests" multiple /> {/* Added SelectField for interests */}
+                <SelectField name="interests" placeholder="Interests" multiple />
                 <div className="text-center">
                   <SubmitField id="update-profile-button" value="Update Profile" />
                 </div>

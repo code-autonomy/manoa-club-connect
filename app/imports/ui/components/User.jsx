@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Card, Col, Row, Image } from 'react-bootstrap';
+import UserProfileClubsCarousel from './UserProfileClubsCarousel';
 
 const UserProfile = ({ user }) => (
-  <Container id="Container-User-Profile" fluid className="h-75">
-    <Row className="h-100">
-      <Col md={10} className="h-100"> {/* Adjust the md value as per your layout requirement */}
-        <Card id="Card-Profile" className="h-100 w-100">
+  <Container fluid>
+    <Row>
+      <Col md={10} className="mx-auto">
+        <Card id="Card-Profile">
           <Card.Body>
+            {/* User details */}
             <Row className="justify-content-center">
               <Col className="justify-content-center text-center">
                 <Image src={user.picture} width={200} />
@@ -23,17 +25,13 @@ const UserProfile = ({ user }) => (
                 <p>Last Name: {user.lastName}</p>
               </Col>
             </Row>
-            <Row className="text-center">
-              <Col>
-                {user.interests && user.interests.length > 0 ? (
-                  <p>Interests: {user.interests.join(', ')}</p>
-                ) : (
-                  <p>No interests specified</p>
-                )}
-              </Col>
-            </Row>
           </Card.Body>
         </Card>
+      </Col>
+    </Row>
+    <Row className="mt-4">
+      <Col md={12}>
+        <UserProfileClubsCarousel user={user} />
       </Col>
     </Row>
   </Container>
@@ -41,13 +39,11 @@ const UserProfile = ({ user }) => (
 
 UserProfile.propTypes = {
   user: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    title: PropTypes.string,
-    picture: PropTypes.string,
-    email: PropTypes.string,
-    _id: PropTypes.string,
-    interests: PropTypes.arrayOf(PropTypes.string), // Added interests PropTypes
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+    interests: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
 };
 
