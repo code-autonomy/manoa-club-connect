@@ -6,6 +6,7 @@ import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { Users } from '../../api/Users/User';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -17,18 +18,44 @@ const SignUp = ({ location }) => {
   const schema = new SimpleSchema({
     email: String,
     password: String,
+    firstName: { type: String, optional: true },
+    lastName: { type: String, optional: true },
+    picture: { type: String, optional: true },
+    interests: {
+      type: Array,
+      optional: true,
+      defaultValue: [],
+    },
+    'interests.$': {
+      type: String,
+      allowedValues: ['Academic/Professional', 'Political', 'Sports/Leisure', 'Religious/Spiritual', 'Service', 'Fraternity/Sorority', 'Ethnic/Cultural', 'Honorary Society', 'Leisure/Recreational', 'Other'],
+    },
+    clubNames: {
+      type: Array,
+      optional: true,
+      defaultValue: [],
+    },
+    'clubNames.$': {
+      type: String,
+    },
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
-    const { email, password } = doc;
+    const { email, password, firstName, lastName } = doc;
     Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
         setError(err.reason);
       } else {
-        setError('');
-        setRedirectToRef(true);
+        Users.collection.insert({ email, firstName, lastName }, (errU) => {
+          if (errU) {
+            setError(errU.reason);
+          } else {
+            setError('');
+            setRedirectToRef(true);
+          }
+        });
       }
     });
   };
