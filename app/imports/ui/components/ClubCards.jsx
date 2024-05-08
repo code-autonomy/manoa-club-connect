@@ -2,6 +2,10 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
+const cardStyle = {
+  border: '1px solid black',
+};
+
 const ClubCards = ({ clubs }) => (
   <div>
     {clubs.map((club) => (
@@ -28,7 +32,7 @@ const ClubCard = ({ club }) => {
   const { organization, dateApproved, expiration, type, email, purpose } = club;
 
   return (
-    <Card>
+    <Card style={cardStyle}>
       <Card.Body>
         <Card.Title>{organization}</Card.Title>
         <Card.Text>Date Approved: {dateApproved}</Card.Text>

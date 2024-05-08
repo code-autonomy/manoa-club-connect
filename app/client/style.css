@@ -178,3 +178,7 @@ hr.underline {
   background-position: center;
   height: 90vh;
 }
+
+#club-cat {
+  background: linear-gradient(to bottom right, rgba(41,173,178,0.75), rgba(0,64,0,0.75));
+}
