@@ -10,7 +10,7 @@
     { "email": "john@foo.com", "password": "changeme" }
   ],
   "defaultUsers": [
-    { "firstName": "John", "lastName": "Doe", "title": "Student", "picture": "https://github.com/code-autonomy/manoa-club-connect/blob/main/app/public/images/testcristian.png","email": "john@foo.com"}],
+    { "firstName": "Cristian", "lastName": "Doey", "title": "Student", "picture": "https://github.com/code-autonomy/manoa-club-connect/blob/main/app/public/images/testcristian.png","email": "john@foo.com"}],
 
   "defaultClub": [
     {
