@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 
 const ClubListPage = () => {
   const clubNames = [
@@ -278,9 +279,12 @@ const ClubListPage = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '20px' }}>
-      <h1>List of all the clubs (A-Z):</h1>
-      {renderClubList()}
+    <div id="club-cat">
+      <Container style={{ textAlign: 'center', marginTop: '20px' }}>
+        <h1>List of all the clubs (A-Z):</h1>
+        <hr />
+        {renderClubList()}
+      </Container>
     </div>
   );
 };
