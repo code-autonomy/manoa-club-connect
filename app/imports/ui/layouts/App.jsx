@@ -41,7 +41,7 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/ClubCategoriesPage" element={<ClubCategoriesPage />} />
-          <Route path="/UserProfile" element={<UserProfilePage />} />
+          <Route path="/UserProfile" element={<ProtectedRoute><UserProfilePage /></ProtectedRoute>} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/signout" element={<SignOutMessage />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
