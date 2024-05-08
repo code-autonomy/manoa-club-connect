@@ -10,8 +10,8 @@ class UsersCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       email: { type: String, index: true, unique: true },
-      firstName: { type: String, optional: true },
-      lastName: { type: String, optional: true },
+      firstName: { type: String, optional: true, defaultValue: 'First Name' },
+      lastName: { type: String, optional: true, defaultValue: 'Last Name' },
       picture: { type: String, optional: true },
       interests: {
         type: Array,
