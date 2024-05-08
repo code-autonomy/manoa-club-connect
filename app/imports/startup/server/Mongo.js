@@ -20,7 +20,7 @@ if (Clubs.collection.find().count() === 0) {
 }
 
 const addUser = (user) => {
-  console.log(`  Adding: ${user.name} (${user.owner})`);
+  console.log(`  Adding: ${user.email} (${user.owner})`);
   Users.collection.insert(user);
 };
 if (Users.collection.find().count() === 0) {
