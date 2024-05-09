@@ -23,6 +23,7 @@ import AdminControl from '../pages/AdminControl';
 import AddClub from '../pages/AddClub';
 import RemoveClub from '../pages/RemoveClub';
 import ClubListPage from '../pages/ClubListPage';
+import MyButton from './MyButton';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -56,6 +57,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
+        <MyButton onClick={() => console.log('Button clicked!')}>Click me</MyButton>
       </div>
     </Router>
   );

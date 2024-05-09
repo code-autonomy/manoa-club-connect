@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { NavLink } from 'react-router-dom'; // Import NavLink
+import { NavLink } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
-import { Container, Nav, Navbar, NavDropdown, Col } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown, Col, Form } from 'react-bootstrap';
 import { BoxArrowRight, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
+import MyButton from './MyButton';
 
 const NavBar = () => {
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
+
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log('Searching for:', searchTerm);
+    setSearchTerm('');
+  };
 
   const linkStyle = { color: 'white' };
 
@@ -30,12 +39,10 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto justify-content-end">
-              {/* Existing navigation links */}
               {currentUser && (
                 <>
                   <Nav.Link id="user-profile-nav" as={NavLink} to="/UserProfile" key="UserProfile" style={linkStyle} className="me-2">User Profile</Nav.Link>
                   <Nav.Link id="clubs-nav" as={NavLink} to="/ClubCategoriesPage" style={linkStyle} className="me-2">Explore Clubs</Nav.Link>
-                  {/* Add the "View List" link */}
                   <Nav.Link as={NavLink} to="/ClubListPage" style={linkStyle} className="me-2">View List</Nav.Link>
                 </>
               )}
@@ -47,7 +54,14 @@ const NavBar = () => {
               )}
             </Nav>
             <Nav className="justify-content-end">
-              {/* Existing user authentication links */}
+              <Form onSubmit={handleSearch} className="me-2">
+                <Form.Control
+                  type="text"
+                  placeholder="Search..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </Form>
               {currentUser === '' ? (
                 <NavDropdown id="login-dropdown" title="Login" style={{ color: 'white' }}>
                   <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
@@ -64,6 +78,8 @@ const NavBar = () => {
                   </NavDropdown.Item>
                 </NavDropdown>
               )}
+              {/* Use MyButton component */}
+              <MyButton onClick={() => console.log('MyButton clicked!')}>Click me</MyButton>
             </Nav>
           </Navbar.Collapse>
         </Col>
