@@ -4,25 +4,25 @@ import { Container, Card, Col, Row, Image } from 'react-bootstrap';
 import UserProfileClubsCarousel from './UserProfileClubsCarousel';
 
 const UserProfile = ({ user }) => (
-  <Container fluid>
-    <Row>
-      <Col md={10} className="mx-auto">
-        <Card id="Card-Profile">
+  <Container fluid className="py-4">
+    <Row className="justify-content-center">
+      <Col md={8}>
+        <Card id="Card-Profile" className="shadow-lg rounded">
           <Card.Body>
-            {/* User details */}
-            <Row className="justify-content-center">
-              <Col className="justify-content-center text-center">
-                <Image src={user.picture} width={200} />
+            <Row className="justify-content-center mb-4">
+              <Col xs="auto">
+                <Image src={user.picture} roundedCircle width={150} />
               </Col>
             </Row>
-            <Row className="text-center">
-              <Col>
-                <p>First Name: {user.firstName}</p>
+            <Row className="mb-2">
+              <Col xs={12} className="text-center">
+                <h3>{user.firstName} {user.lastName}</h3>
+                <p>{user.title}</p>
               </Col>
             </Row>
-            <Row className="text-center">
-              <Col>
-                <p>Last Name: {user.lastName}</p>
+            <Row className="mb-3">
+              <Col xs={12} className="text-center">
+                <p><strong>Interests:</strong> {user.interests.join(', ')}</p>
               </Col>
             </Row>
           </Card.Body>
