@@ -49,7 +49,7 @@ const NavBar = () => {
                 <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" style={linkStyle}>Admin</Nav.Link>
               )}
             </Nav>
-            <Nav className="justify-content-end" >
+            <Nav className="justify-content-end">
               {/* Existing user authentication links */}
               {currentUser === '' ? (
                 <NavDropdown id="login-dropdown" title="Login" style={{ color: 'white' }}>
